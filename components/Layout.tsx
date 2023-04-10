@@ -10,11 +10,11 @@ type LayoutProps = {
 export default function Layout({ children }: LayoutProps) {
   return (
     <>
-      <div className={inter.className}>
+      <div className={`${inter.className} relative`}>
+        <Sidebar />
         <main className="flex min-h-screen flex-col items-start p-24">
           {children}
         </main>
-        <Sidebar />
       </div>
     </>
   );
