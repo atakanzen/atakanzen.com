@@ -27,7 +27,7 @@ export default function Sidebar() {
           </div>
         </div>
         {/* Title */}
-        <div className="flex xl:flex-col items-center justify-center  divide-x-2">
+        <div className="flex xl:flex-col items-center justify-center  divide-x-2 xl:divide-x-0">
           <h1 className="text-base xs:text-xl xl:text-3xl font-bold pr-2">
             Atakan Zengin
           </h1>

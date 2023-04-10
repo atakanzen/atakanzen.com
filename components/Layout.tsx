@@ -12,9 +12,7 @@ export default function Layout({ children }: LayoutProps) {
     <>
       <div className={`${inter.className} relative`}>
         <Sidebar />
-        <main className="flex min-h-screen flex-col items-start p-24">
-          {children}
-        </main>
+        <main className="mx-auto p-16 relative">{children}</main>
       </div>
     </>
   );
