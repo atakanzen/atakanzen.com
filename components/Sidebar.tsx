@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function Sidebar() {
   return (
-    <aside className="top-0 right-0 left-0 xl:left-auto xl:absolute xl:h-screen xl:bottom-0 xl:right-0 bg-gray-800 xl:w-80 p-4 xl:pb-9">
+    <aside className="xl:left-auto xl:fixed xl:top-0 xl:h-screen xl:bottom-0 xl:right-0 bg-gray-800 xl:w-80 p-4 xl:pb-9">
       <div className="flex flex-row-reverse xl:flex-col h-full items-center justify-between xl:justify-end gap-2">
         {/* Dynamic sized profile photo based on breakpoint */}
         <div>
