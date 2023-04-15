@@ -19,6 +19,13 @@ module.exports = {
         xs: "475px",
         ...defaultTheme.screens,
       },
+      colors: {
+        mioblack: "#1f1f1f",
+        miogray: {
+          50: "#444647",
+          100: "#28292a",
+        },
+      },
     },
   },
   plugins: [],

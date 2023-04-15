@@ -1,5 +1,29 @@
-import Image from "next/image";
+import CardNavigation from "@/components/CardNavigation";
+import { CardNavigationProps } from "@/components/CardNavigation";
 import Link from "next/link";
+
+const navigationCards: CardNavigationProps[] = [
+  {
+    href: "/posts",
+    title: "Posts",
+    description: "You can read what I write, occasionally.",
+  },
+  {
+    href: "/my-journey",
+    title: "Journey",
+    description: "Check my journey, in a timeline format!",
+  },
+  {
+    href: "/projects",
+    title: "Projects",
+    description: "Making Sundays less depressive.",
+  },
+  {
+    href: "/contact",
+    title: "Contacts",
+    description: "Some useful links where I appear.",
+  },
+];
 
 export default function Home() {
   return (
@@ -19,44 +43,15 @@ export default function Home() {
       </div>
       <div className="flex flex-col gap-4">
         <p>Here are some useful pages, if you would like to know me better.</p>
-        {/* TODO: Hover can apply underline instead of an animation, considering the click times */}
         <div className="grid grid-cols-1 xl:grid-cols-2 gap-3">
-          <Link
-            href="/posts"
-            className="group p-6 dark:bg-gray-800 dark:hover:bg-gray-700 rounded-xl"
-          >
-            <h5 className="text-l font-semibold">
-              <span className="group-hover:animate-pulse text-cyan-300 font-bold text-xl">
-                MY
-              </span>{" "}
-              Posts
-            </h5>
-            <p>You can read what I write, occasionally.</p>
-          </Link>
-          <Link
-            href="/my-journey"
-            className="group p-6 dark:bg-gray-800 dark:hover:bg-gray-700  rounded-xl"
-          >
-            <h5 className="text-l font-semibold">
-              <span className="group-hover:animate-pulse text-cyan-300 font-bold text-xl">
-                MY
-              </span>{" "}
-              Journey
-            </h5>
-            <p>Check my journey, in a timeline format!</p>
-          </Link>
-          <Link
-            href="/projects"
-            className="group p-6 dark:bg-gray-800 dark:hover:bg-gray-700  rounded-xl"
-          >
-            <h5 className="text-l font-semibold">
-              <span className="group-hover:animate-pulse text-cyan-300 font-bold text-xl">
-                MY
-              </span>{" "}
-              Projects
-            </h5>
-            <p>These are the things that keep me sane.</p>
-          </Link>
+          {navigationCards.map((nc, i) => (
+            <CardNavigation
+              key={i}
+              title={nc.title}
+              description={nc.description}
+              href={nc.href}
+            />
+          ))}
         </div>
       </div>
     </div>

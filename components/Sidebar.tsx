@@ -2,7 +2,8 @@ import Image from "next/image";
 
 export default function Sidebar() {
   return (
-    <aside className="xl:left-auto xl:fixed xl:top-0 xl:h-screen xl:bottom-0 xl:right-0 bg-gray-800 xl:w-80 p-4 xl:pb-9">
+    // <aside className="xl:left-auto xl:fixed xl:top-0 xl:h-screen xl:bottom-0 xl:right-0 bg-gray-800 xl:w-80 p-4 xl:pb-9">
+    <aside className="bg-gradient-to-b from-miogray-100 xl:bg-miogray-100 p-4 xl:h-screen">
       <div className="flex flex-row-reverse xl:flex-col h-full items-center justify-between xl:justify-end gap-2">
         {/* Dynamic sized profile photo based on breakpoint */}
         <div>
@@ -27,7 +28,7 @@ export default function Sidebar() {
           </div>
         </div>
         {/* Title */}
-        <div className="flex xl:flex-col items-center justify-center  divide-x-2 xl:divide-x-0">
+        <div className="flex xl:flex-col items-center justify-center xl:mb-4 divide-x-2 xl:divide-x-0">
           <h1 className="text-base xs:text-xl xl:text-3xl font-bold pr-2">
             Atakan Zengin
           </h1>
