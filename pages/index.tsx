@@ -27,7 +27,7 @@ const navigationCards: CardNavigationProps[] = [
 
 export default function Home() {
   return (
-    <div className="flex flex-col items-center xl:items-start gap-10">
+    <div className="flex flex-col items-center  xl:items-start gap-10">
       <div>
         <div className="group">
           <h3 className="text-3xl xl:text-4xl font-semibold">

@@ -10,8 +10,10 @@ const Posts = () => {
       </Link>
       <h3 className="text-4xl my-3">Posts 🖨️</h3>
       <ul className="flex flex-col items-start gap-4">
-        <li className="max-w-4xl border-solid p-4 bg-miogray-100 rounded-lg rounded-l-none">
-          <h4 className=" text-cyan-300 font-extrabold text-2xl">Title</h4>
+        <li className="max-w-4xl border-solid p-4 bg-miowhite-50 dark:bg-miogray-100 rounded-lg rounded-l-none">
+          <h4 className="text-cyan-500 dark:text-cyan-300 font-extrabold text-2xl">
+            Title
+          </h4>
           <p>
             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Distinctio
             labore porro qui corrupti quo doloremque quae similique deserunt

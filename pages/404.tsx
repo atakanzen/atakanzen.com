@@ -3,7 +3,7 @@ import React from "react";
 
 const Custom404 = () => {
   return (
-    <div className="flex flex-col items-center justify-center h-full gap-8">
+    <div className="flex flex-col h-full items-center justify-center  gap-8">
       <h3 className="text-5xl font-bold ">
         Error{" "}
         <span className="underline decoration-wavy underline-offset-8 decoration-orange-600">
