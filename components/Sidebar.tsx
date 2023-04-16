@@ -1,8 +1,8 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Sidebar() {
   return (
-    // <aside className="xl:left-auto xl:fixed xl:top-0 xl:h-screen xl:bottom-0 xl:right-0 bg-gray-800 xl:w-80 p-4 xl:pb-9">
     <aside className="bg-gradient-to-b from-cyan-100 dark:from-miogray-100 xl:from-miowhite-50 xl:bg-miowhite-50 xl:dark:bg-miogray-100 xl:dark:from-miogray-100 p-4 xl:h-screen">
       <div className="flex flex-row-reverse xl:flex-col h-full items-center justify-between xl:justify-end gap-2">
         {/* Dynamic sized profile photo based on breakpoint */}
@@ -30,9 +30,13 @@ export default function Sidebar() {
         </div>
         {/* Title */}
         <div className="flex items-center justify-center divide-x-2 divide-miogray-100 dark:divide-miowhite-50 text-center xl:flex-col xl:mb-4 xl:divide-x-0">
-          <h1 className="text-base xs:text-xl  xl:text-2xl 2xl:text-3xl font-bold pr-2 xl:pr-0">
-            Atakan Zengin
-          </h1>
+          <Link href="/">
+            {" "}
+            <h1 className="text-base xs:text-xl  xl:text-2xl 2xl:text-3xl font-bold pr-2 xl:pr-0">
+              Atakan Zengin
+            </h1>
+          </Link>
+
           <h2 className="text-sm xs:text-base xl:text-l 2xl:text-xl text-mioblack dark:text-slate-500 pl-2">
             Software Engineer
           </h2>

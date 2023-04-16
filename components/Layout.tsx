@@ -9,18 +9,17 @@ type LayoutProps = {
 
 export default function Layout({ children }: LayoutProps) {
   return (
-    <div>
+    <>
       <div
-        className={`${inter.className} h-screen grid grid-rows-6 xl:grid-rows-1 grid-cols-1 xl:grid-cols-12`}
+        className={`${inter.className} sm:h-screen grid grid-cols-1 xl:grid-rows-1 xl:grid-cols-12`}
       >
-        <div className="row-start-1 row-span-1 xl:col-span-2  xl:col-start-11">
+        <div className="xl:fixed xl:right-0 xl:bottom-0 row-start-1 row-span-1 xl:col-span-2  xl:col-start-11 ">
           <Sidebar />
         </div>
-
-        <main className="mx-auto p-10 col-span-12 row-span-5 row-start-2 col-start-1 xl:col-span-10  xl:row-start-1 ">
-          {children}
-        </main>
+        <div className="col-span-1 row-span-6 row-start-2 col-start-1 xl:col-span-10  xl:row-start-1 xl:row-span-1">
+          <main className="mx-auto p-4 h-full">{children}</main>
+        </div>
       </div>
-    </div>
+    </>
   );
 }

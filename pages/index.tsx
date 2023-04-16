@@ -27,17 +27,17 @@ const navigationCards: CardNavigationProps[] = [
 
 export default function Home() {
   return (
-    <div className="flex flex-col items-center  xl:items-start gap-10">
-      <div>
+    <div className="flex flex-col items-center justify-center md:h-full gap-10">
+      <div className="text-center">
         <div className="group">
-          <h3 className="text-3xl xl:text-4xl font-semibold">
+          <h3 className="text-3xl xl:text-6xl font-semibold">
             Hey there{" "}
             <span className="group-hover:rotate-45 duration-500 inline-block">
               👋
             </span>
           </h3>
         </div>
-        <h4 className="text-2xl xl:text-3xl underline decoration-cyan-300 underline-offset-8 decoration-solid">
+        <h4 className="text-2xl xl:text-5xl underline decoration-cyan-300 underline-offset-4 decoration-solid">
           I help people by creating quality software.
         </h4>
       </div>
