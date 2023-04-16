@@ -11,7 +11,7 @@ export default function Layout({ children }: LayoutProps) {
   return (
     <div>
       <div
-        className={`${inter.className} h-screen grid grid-rows-[max_content_1fr] xl:grid-rows-1 grid-cols-1 xl:grid-cols-12`}
+        className={`${inter.className} h-screen grid grid-rows-6 xl:grid-rows-1 grid-cols-1 xl:grid-cols-12`}
       >
         <div className="row-start-1 row-span-1 xl:col-span-2  xl:col-start-11">
           <Sidebar />
