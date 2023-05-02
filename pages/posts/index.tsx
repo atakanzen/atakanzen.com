@@ -1,44 +1,68 @@
+import { POST_PATHS, postFilePaths } from "@/utils/mdxUtils";
 import { GetStaticProps } from "next";
+import fs from "fs";
 import Link from "next/link";
-import { Post, getPosts } from "@/lib/notion";
+import path from "path";
 
-interface PostsProps {
+import matter from "gray-matter";
+
+type Post = {
+  metadata: Record<string, any>;
+  path: String;
+};
+
+type Props = {
   posts: Post[];
-}
+};
 
-const Posts = ({ posts }: PostsProps) => {
+const Posts = ({ posts }: Props) => {
   return (
-    <div className="flex flex-col items-start justify-center max-w-2xl mx-auto">
-      <Link href="/" className="underline mb-5">
-        Back to homepage
+    <div className="flex flex-col items-start p-4 divide-y-2 gap-4 xl:max-w-4xl mx-auto">
+      <Link
+        href="/"
+        className="p-2 rounded-md bg-miowhite-50 hover:bg-cyan-50 dark:bg-miogray-100 dark:hover:bg-miogray-50"
+      >
+        Homepage
       </Link>
-      <h3 className="text-4xl my-3">Posts 🖨️</h3>
-      <ul className="flex flex-col items-start gap-4 w-full">
-        {posts.map((p, i) => (
-          <Link
-            key={i}
-            href={`/posts/${p.slug}`}
-            className="w-full border-solid p-4 max-w-2xl bg-miowhite-50 dark:bg-miogray-100 rounded-lg rounded-l-none"
-          >
-            <h4 className="text-cyan-500 dark:text-cyan-300 font-extrabold text-2xl">
-              {p.title}
-            </h4>
-            <p>{p.excerpt}</p>
-          </Link>
-        ))}
-      </ul>
+      <div className="w-full">
+        <h3 className="text-4xl my-3">Posts 🖨️</h3>
+        <ul className="flex flex-col items-start gap-4 w-full">
+          {posts.map((p, i) => (
+            <Link
+              key={i}
+              href={`/posts/${p.path}`}
+              className="w-full border-solid p-4 bg-miowhite-50 dark:bg-miogray-100 rounded-lg rounded-l-none"
+            >
+              <h4 className="text-cyan-500 dark:text-cyan-300 font-extrabold text-2xl">
+                {p.metadata.title}
+              </h4>
+              <p>{p.metadata.excerpt}</p>
+              <p className="text-sm">
+                {new Date(p.metadata.date).toDateString()}
+              </p>
+            </Link>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 };
 
 export const getStaticProps: GetStaticProps = async (context) => {
-  let posts = await getPosts();
+  let posts = postFilePaths.map((fp) => {
+    const source = fs.readFileSync(path.join(POST_PATHS, fp));
+    const { content, data } = matter(source);
 
-  return {
-    props: {
-      posts,
-    },
-  };
+    return {
+      metadata: data,
+      path: fp.replace(/\.mdx?$/, ""),
+    };
+  });
+  posts = posts.sort(
+    (a, b) =>
+      new Date(b.metadata.date).getTime() - new Date(a.metadata.date).getTime()
+  );
+  return { props: { posts } };
 };
 
 export default Posts;

@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function Sidebar() {
   return (
-    <aside className="bg-gradient-to-b from-cyan-100 dark:from-miogray-100 xl:from-miowhite-50 xl:bg-miowhite-50 xl:dark:bg-miogray-100 xl:dark:from-miogray-100 p-4 xl:h-screen">
+    <aside className="backdrop-blur-xl bg-gradient-to-b from-cyan-100 dark:from-miogray-100 xl:from-miowhite-50 xl:bg-miowhite-50 xl:dark:bg-miogray-100 xl:dark:from-miogray-100 p-4 xl:h-screen">
       <div className="flex flex-row-reverse xl:flex-col h-full items-center justify-between xl:justify-end gap-2">
         {/* Dynamic sized profile photo based on breakpoint */}
         <div>

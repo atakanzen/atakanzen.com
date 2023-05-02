@@ -42,7 +42,9 @@ export default function Home() {
         </h4>
       </div>
       <div className="flex flex-col gap-4">
-        <p>Here are some useful pages, if you would like to know me better.</p>
+        <p className="text-center text-lg">
+          Here are some useful pages, if you would like to know me better.
+        </p>
         <div className="grid grid-cols-1 xl:grid-cols-2 gap-3">
           {navigationCards.map((nc, i) => (
             <CardNavigation
