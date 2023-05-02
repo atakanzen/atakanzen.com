@@ -1,11 +1,5 @@
 import { Client, isFullPage, isNotionClientError } from "@notionhq/client";
-import {
-  CheckboxPropertyItemObjectResponse,
-  DatePropertyItemObjectResponse,
-  MultiSelectPropertyItemObjectResponse,
-  RichTextPropertyItemObjectResponse,
-  TitlePropertyItemObjectResponse,
-} from "@notionhq/client/build/src/api-endpoints";
+import { DatePropertyItemObjectResponse } from "@notionhq/client/build/src/api-endpoints";
 
 const notion = new Client({ auth: process.env.NOTION_KEY });
 
@@ -17,11 +11,13 @@ export interface Post {
   date: string;
 }
 
+export interface PostContent {}
+
 const getPosts = async (): Promise<Post[]> => {
   try {
     let posts: Post[] = [];
 
-    const blogDB = await notion.databases.query({
+    const postsTable = await notion.databases.query({
       database_id: process.env.NOTION_DB_ID!,
       filter:
         process.env.NODE_ENV === "production"
@@ -36,14 +32,18 @@ const getPosts = async (): Promise<Post[]> => {
               ],
             }
           : undefined,
+      sorts: [
+        {
+          property: "date",
+          direction: "descending",
+        },
+      ],
     });
 
-    for (const page of blogDB.results) {
+    for (const page of postsTable.results) {
       if (!isFullPage(page)) {
         continue;
       }
-
-      // console.log(page.properties);
 
       const post: Post = {
         id: page.id,
@@ -62,9 +62,46 @@ const getPosts = async (): Promise<Post[]> => {
     if (isNotionClientError(error)) {
       console.error("Notion Error: ", error.message);
     }
-
     return [];
   }
 };
 
-export { getPosts };
+const getSlugs = async (): Promise<string[]> => {
+  let posts = await getPosts();
+
+  return posts.map((p) => p.slug);
+};
+
+const getPostBlocks = async (slug: string) => {
+  try {
+    const filteredPostWithSlug = await notion.databases.query({
+      database_id: process.env.NOTION_DB_ID!,
+      filter: {
+        and: [
+          {
+            property: "slug",
+            rich_text: {
+              equals: slug,
+            },
+          },
+        ],
+      },
+      page_size: 1,
+    });
+
+    const pageId = filteredPostWithSlug.results[0].id;
+
+    const pageContent = await notion.blocks.children.list({
+      block_id: pageId,
+    });
+
+    return pageContent.results;
+  } catch (error: unknown) {
+    if (isNotionClientError(error)) {
+      console.error("Notion Error: ", error.message);
+    }
+    return [];
+  }
+};
+
+export { getPosts, getPostBlocks, getSlugs };

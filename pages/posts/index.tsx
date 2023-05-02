@@ -1,7 +1,5 @@
 import { GetStaticProps } from "next";
-import fs from "fs";
 import Link from "next/link";
-import path from "path";
 import { Post, getPosts } from "@/lib/notion";
 
 interface PostsProps {
