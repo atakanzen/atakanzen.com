@@ -24,7 +24,7 @@ const getPosts = async (): Promise<Post[]> => {
     const blogDB = await notion.databases.query({
       database_id: process.env.NOTION_DB_ID!,
       filter:
-        process.env.NODE_ENV === "development"
+        process.env.NODE_ENV === "production"
           ? {
               and: [
                 {
