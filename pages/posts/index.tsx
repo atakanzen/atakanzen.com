@@ -1,21 +1,14 @@
-import { POST_PATHS, postFilePaths } from "@/utils/mdxUtils";
 import { GetStaticProps } from "next";
 import fs from "fs";
 import Link from "next/link";
 import path from "path";
+import { Post, getPosts } from "@/lib/notion";
 
-import matter from "gray-matter";
-
-type Post = {
-  metadata: Record<string, any>;
-  path: String;
-};
-
-type Props = {
+interface PostsProps {
   posts: Post[];
-};
+}
 
-const Posts = ({ posts }: Props) => {
+const Posts = ({ posts }: PostsProps) => {
   return (
     <div className="flex flex-col items-start justify-center max-w-2xl mx-auto">
       <Link href="/" className="underline mb-5">
@@ -26,13 +19,13 @@ const Posts = ({ posts }: Props) => {
         {posts.map((p, i) => (
           <Link
             key={i}
-            href={`/posts/${p.path}`}
+            href={`/posts/${p.slug}`}
             className="w-full border-solid p-4 max-w-2xl bg-miowhite-50 dark:bg-miogray-100 rounded-lg rounded-l-none"
           >
             <h4 className="text-cyan-500 dark:text-cyan-300 font-extrabold text-2xl">
-              {p.metadata.title}
+              {p.title}
             </h4>
-            <p>{p.metadata.description}</p>
+            <p>{p.excerpt}</p>
           </Link>
         ))}
       </ul>
@@ -41,17 +34,13 @@ const Posts = ({ posts }: Props) => {
 };
 
 export const getStaticProps: GetStaticProps = async (context) => {
-  const posts = postFilePaths.map((fp) => {
-    const source = fs.readFileSync(path.join(POST_PATHS, fp));
-    const { content, data } = matter(source);
+  let posts = await getPosts();
 
-    return {
-      metadata: data,
-      path: fp.replace(/\.mdx?$/, ""),
-    };
-  });
-
-  return { props: { posts } };
+  return {
+    props: {
+      posts,
+    },
+  };
 };
 
 export default Posts;
