@@ -45,30 +45,39 @@ const journeyPoints: JorneyPoint[] = [
     description: (
       <p className="text-base font-normal dark:text-gray-400">
         I have completed my studies on English Translation and Interpration with
-        a <span className="text-sky-500 font-semibold">GPA of 3.25</span>
+        a <span className="text-cyan-300 font-semibold">GPA of 3.25</span>
       </p>
     ),
     hasLink: false,
   },
   {
-    title: "Landed my first software engineering job",
+    title: "Sofware Developer Intern @ Modanisa",
     startDate: new Date(2020, 9),
     endDate: new Date(2021, 7),
     description: (
       <p className="text-base font-normal dark:text-gray-400">
-        I worked for{" "}
-        <a
-          className="text-orange-400 underline"
-          href="https://modanisa.com"
-          target="_blank"
-          rel="noopener noreferrer"
+        I contributed to Modanisa&apos;s digital transformation journey from a
+        monolith architecture to{" "}
+        <span
+          className=" font-semibold
+          text-sky-500 dark:text-cyan-300"
         >
-          Modanisa
-        </a>{" "}
-        and contributed to its transformation journey.
+          Go
+        </span>{" "}
+        micro-services and{" "}
+        <span className="text-sky-500 dark:text-cyan-300 font-semibold">
+          Vue
+        </span>{" "}
+        micro-frontends in{" "}
+        <span className="text-sky-500 dark:text-cyan-300 font-semibold">
+          Search & Listing
+        </span>{" "}
+        domain to improve customer retention and revenu streams
       </p>
     ),
-    hasLink: false,
+    hasLink: true,
+    linkType: "internal",
+    href: "/posts/almost-one-year-at-modanisa",
   },
   {
     title: "Successfully completed a software bootcamp",
@@ -77,12 +86,19 @@ const journeyPoints: JorneyPoint[] = [
     description: (
       <p className="text-base font-normal dark:text-gray-400">
         I laid a foundation for my software career by focusing on{" "}
-        <span className="text-purple-400 font-semibold font-mono">
+        <span className="text-sky-500 dark:text-cyan-300 font-semibold ">
           ASP.NET MVC Web Apps
         </span>
-        , <span className="text-orange-500 font-semibold font-mono">HTML5</span>
-        , <span className="text-sky-500 font-semibold font-mono">CSS</span>, and{" "}
-        <span className="text-yellow-400 font-semibold font-mono">
+        ,{" "}
+        <span className="text-sky-500 dark:text-cyan-300 font-semibold ">
+          HTML5
+        </span>
+        ,{" "}
+        <span className="text-sky-500 dark:text-cyan-300 font-semibold ">
+          CSS
+        </span>
+        , and{" "}
+        <span className="text-sky-500 dark:text-cyan-300 font-semibold ">
           JavaScript
         </span>
       </p>
@@ -94,7 +110,16 @@ const journeyPoints: JorneyPoint[] = [
 const MyJourney = () => {
   return (
     <div className="flex flex-col items-center xl:items-start gap-4 divide-y-2 justify-center xl:h-full xl:max-w-4xl mx-auto">
-      <h2 className="text-3xl font-bold">My Journey</h2>
+      <div className="flex items-center gap-2">
+        <Link
+          href="/"
+          className="p-2 rounded-md font-semibold bg-miowhite-50 hover:bg-cyan-50 dark:bg-miogray-100 dark:hover:bg-miogray-50"
+        >
+          Homepage
+        </Link>
+        <span>/</span>
+        <h2 className="font-semibold">My Journey</h2>
+      </div>
       <div className="pt-4">
         <ol className="relative border-l border-x-miogray-50 dark:border-x-miowhite-50">
           {journeyPoints.map((j, i) => (
@@ -126,14 +151,14 @@ const MyJourney = () => {
               {j.hasLink ? (
                 j.linkType === "internal" ? (
                   <Link
-                    className="inline-flex items-center p-2 mt-2 rounded-md bg-miowhite-50 hover:bg-cyan-50 dark:bg-miogray-100 dark:hover:bg-miogray-50"
+                    className="inline-flex items-center p-2 mt-2 rounded-md bg-sky-100 hover:bg-sky-50 dark:bg-miogray-100 dark:hover:bg-miogray-50 font-semibold"
                     href={j.href!}
                   >
                     See more here
                   </Link>
                 ) : j.linkType === "external" ? (
                   <a
-                    className="inline-flex items-center p-2 mt-2 rounded-md bg-miowhite-50 hover:bg-cyan-50 dark:bg-miogray-100 dark:hover:bg-miogray-50"
+                    className="inline-flex items-center p-2 mt-2 rounded-md bg-miowhite-50 hover:bg-cyan-50 dark:bg-miogray-100 dark:hover:bg-miogray-50 font-semibold"
                     href={j.href!}
                     target="_blank"
                     rel="noopener noreferrer"

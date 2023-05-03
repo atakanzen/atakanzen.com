@@ -24,7 +24,7 @@ const PostPage = ({
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
     <div className="flex flex-col items-start p-4 divide-y-2 gap-4 xl:max-w-4xl mx-auto">
-      <div className="flex items-center gap-2 w-full ">
+      <div className="flex items-center gap-2 font-semibold">
         <Link
           href="/"
           className="p-2 rounded-md bg-miowhite-50 hover:bg-cyan-50 dark:bg-miogray-100 dark:hover:bg-miogray-50"
@@ -42,7 +42,7 @@ const PostPage = ({
       <article className="prose sm:prose-lg max-w-none pt-4 dark:prose-invert prose-a:text-cyan-300 prose-a:underline prose-pre:bg-miogray-100 prose-pre:max-w-xs prose-pre:sm:max-w-none">
         <MDXRemote {...mdxSource} components={components} lazy />
       </article>
-      <div className="flex items-center gap-2 w-full pt-4">
+      <div className="flex items-center w-full gap-2 font-semibold pt-4">
         <Link
           href="/"
           className="p-2 rounded-md bg-miowhite-50 hover:bg-cyan-50 dark:bg-miogray-100 dark:hover:bg-miogray-50"

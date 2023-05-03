@@ -37,7 +37,7 @@ export default function Home() {
             </span>
           </h3>
         </div>
-        <h4 className="text-2xl xl:text-5xl underline decoration-cyan-300 underline-offset-4 decoration-solid">
+        <h4 className="text-2xl xl:text-5xl underline  underline-offset-4 decoration-solid">
           I help people by creating quality software.
         </h4>
       </div>

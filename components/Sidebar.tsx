@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function Sidebar() {
   return (
-    <aside className="backdrop-blur-xl p-4 xl:h-screen">
+    <aside className="p-4 xl:h-screen">
       <div className="flex flex-row-reverse xl:flex-col h-full items-center justify-between xl:justify-end gap-2">
         {/* Dynamic sized profile photo based on breakpoint */}
         <div>

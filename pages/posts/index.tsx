@@ -18,24 +18,25 @@ type Props = {
 const Posts = ({ posts }: Props) => {
   return (
     <div className="flex flex-col items-start p-4 divide-y-2 gap-4 xl:max-w-4xl mx-auto">
-      <Link
-        href="/"
-        className="p-2 rounded-md bg-miowhite-50 hover:bg-cyan-50 dark:bg-miogray-100 dark:hover:bg-miogray-50"
-      >
-        Homepage
-      </Link>
-      <div className="w-full">
-        <h3 className="text-4xl my-3">Posts 🖨️</h3>
+      <div className="flex items-center gap-2 font-semibold">
+        <Link
+          href="/"
+          className="p-2 rounded-md  bg-miowhite-50 xl:hover:bg-cyan-50 dark:bg-miogray-100 xl:dark:hover:bg-miogray-50"
+        >
+          Homepage
+        </Link>
+        <span>/</span>
+        <h2 className="p-2">Posts</h2>
+      </div>
+      <div className="w-full pt-4">
         <ul className="flex flex-col items-start gap-4 w-full">
           {posts.map((p, i) => (
             <Link
               key={i}
               href={`/posts/${p.path}`}
-              className="w-full border-solid p-4 bg-miowhite-50 dark:bg-miogray-100 rounded-lg rounded-l-none"
+              className="w-full border-solid p-4 bg-miowhite-50 xl:hover:bg-cyan-50 xl:dark:hover:bg-miogray-50 dark:bg-miogray-100 rounded-lg rounded-l-none"
             >
-              <h4 className="text-cyan-500 dark:text-cyan-300 font-extrabold text-2xl">
-                {p.metadata.title}
-              </h4>
+              <h4 className=" font-extrabold text-2xl">{p.metadata.title}</h4>
               <p>{p.metadata.excerpt}</p>
               <p className="text-sm">
                 {new Date(p.metadata.date).toDateString()}
