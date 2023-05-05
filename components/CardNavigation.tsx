@@ -12,10 +12,11 @@ const CardNavigation = ({ href, title, description }: CardNavigationProps) => {
   return (
     <Link
       href={href}
-      className="group p-6 bg-miowhite-50 xl:hover:bg-cyan-50 dark:bg-miogray-100 dark:hover:xl:bg-miogray-50 rounded-xl"
+      className="p-6 cursor-pointer group xl:hover:bg-slate-100 dark:bg-slate-900 border dark:border-black xl:dark:hover:bg-slate-800 rounded-xl"
     >
-      <h5 className="text-l font-semibold">
-        <span className="font-bold text-xl">MY</span> {title}
+      <h5 className="text-xl font-bold max-w-fit text-sky-500 dark:text-sky-300">
+        MY {title}
+        <span className="hidden xl:block max-w-0 xl:group-hover:max-w-full transition-all duration-500 -mt-1 h-0.5 bg-gradient-to-r from-cyan-300 to-sky-400"></span>
       </h5>
       <p>{description}</p>
     </Link>

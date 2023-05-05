@@ -21,12 +21,12 @@ const Posts = ({ posts }: Props) => {
       <div className="flex items-center gap-2 font-semibold">
         <Link
           href="/"
-          className="p-2 rounded-md  bg-miowhite-50 xl:hover:bg-cyan-50 dark:bg-miogray-100 xl:dark:hover:bg-miogray-50"
+          className="underline underline-offset-2 decoration-sky-400"
         >
           Homepage
         </Link>
         <span>/</span>
-        <h2 className="p-2">Posts</h2>
+        <h2>Posts</h2>
       </div>
       <div className="w-full pt-4">
         <ul className="flex flex-col items-start gap-4 w-full">
@@ -34,11 +34,11 @@ const Posts = ({ posts }: Props) => {
             <Link
               key={i}
               href={`/posts/${p.path}`}
-              className="w-full border-solid p-4 bg-miowhite-50 xl:hover:bg-cyan-50 xl:dark:hover:bg-miogray-50 dark:bg-miogray-100 rounded-lg rounded-l-none"
+              className="dark:bg-slate-900 border-2 xl:hover:bg-slate-100 xl:dark:hover:bg-slate-800 w-full border-solid p-4 rounded-lg rounded-l-none"
             >
-              <h4 className=" font-extrabold text-2xl">{p.metadata.title}</h4>
-              <p>{p.metadata.excerpt}</p>
-              <p className="text-sm">
+              <h4 className="font-extrabold text-2xl">{p.metadata.title}</h4>
+              <p className="text-base text-slate-400">{p.metadata.excerpt}</p>
+              <p className="text-sm text-slate-500">
                 {new Date(p.metadata.date).toDateString()}
               </p>
             </Link>

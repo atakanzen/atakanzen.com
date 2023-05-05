@@ -5,22 +5,22 @@ import Link from "next/link";
 const navigationCards: CardNavigationProps[] = [
   {
     href: "/posts",
-    title: "Posts",
+    title: "POSTS",
     description: "You can read what I write, occasionally.",
   },
   {
     href: "/my-journey",
-    title: "Journey",
+    title: "JOURNEY",
     description: "Check my journey, in a timeline format!",
   },
   {
     href: "/projects",
-    title: "Projects",
+    title: "PROJECTS",
     description: "Making Sundays less depressive.",
   },
   {
     href: "/contact",
-    title: "Contacts",
+    title: "CONTACTS",
     description: "Some useful links where I appear.",
   },
 ];
@@ -28,16 +28,9 @@ const navigationCards: CardNavigationProps[] = [
 export default function Home() {
   return (
     <div className="flex flex-col items-center justify-center md:h-full gap-10">
-      <div className="text-center">
-        <div className="group">
-          <h3 className="text-3xl xl:text-6xl font-semibold">
-            Hey there{" "}
-            <span className="group-hover:rotate-45 duration-500 inline-block">
-              👋
-            </span>
-          </h3>
-        </div>
-        <h4 className="text-2xl xl:text-5xl underline  underline-offset-4 decoration-solid">
+      <div className="text-center xl:tracking-tight ">
+        <h3 className="text-3xl xl:text-6xl font-bold mb-2">Hey there</h3>
+        <h4 className="text-2xl xl:text-5xl font-semibold text-slate-950 p-1 xl:p-2 rounded bg-gradient-to-r from-cyan-300 via-sky-500 to-blue-400">
           I help people by creating quality software.
         </h4>
       </div>

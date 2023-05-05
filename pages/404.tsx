@@ -25,10 +25,7 @@ const Custom404 = () => {
           </a>
         </p>
       </div>
-      <Link
-        href="/"
-        className="p-4 bg-miowhite-50 hover:bg-cyan-50 dark:bg-miogray-100 dark:hover:bg-miogray-50 rounded"
-      >
+      <Link href="/" className="p-4 hover:bg-cyan-50 rounded">
         Back to homepage
       </Link>
     </div>

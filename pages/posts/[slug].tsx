@@ -27,32 +27,32 @@ const PostPage = ({
       <div className="flex items-center gap-2 font-semibold">
         <Link
           href="/"
-          className="p-2 rounded-md bg-miowhite-50 hover:bg-cyan-50 dark:bg-miogray-100 dark:hover:bg-miogray-50"
+          className="underline underline-offset-2 decoration-sky-400"
         >
           Homepage
         </Link>
         <span>/</span>
         <Link
           href="/posts"
-          className="p-2 rounded-md bg-miowhite-50 hover:bg-cyan-50 dark:bg-miogray-100 dark:hover:bg-miogray-50"
+          className="underline underline-offset-2 decoration-sky-400"
         >
           Posts
         </Link>
       </div>
-      <article className="prose sm:prose-lg max-w-none pt-4 dark:prose-invert prose-a:text-cyan-300 prose-a:underline prose-pre:bg-miogray-100 prose-pre:max-w-xs prose-pre:sm:max-w-none">
+      <article className="prose sm:prose-lg max-w-none pt-4 dark:prose-invert  prose-a:underline  prose-a:dark:text-sky-400 prose-a:text-sky-500 prose-pre:max-w-xs prose-pre:sm:max-w-none">
         <MDXRemote {...mdxSource} components={components} lazy />
       </article>
       <div className="flex items-center w-full gap-2 font-semibold pt-4">
         <Link
           href="/"
-          className="p-2 rounded-md bg-miowhite-50 hover:bg-cyan-50 dark:bg-miogray-100 dark:hover:bg-miogray-50"
+          className="underline underline-offset-2 decoration-sky-400"
         >
           Homepage
         </Link>
         <span>/</span>
         <Link
           href="/posts"
-          className="p-2 rounded-md bg-miowhite-50 hover:bg-cyan-50 dark:bg-miogray-100 dark:hover:bg-miogray-50"
+          className="underline underline-offset-2 decoration-sky-400"
         >
           Posts
         </Link>
