@@ -32,14 +32,14 @@ export default function Sidebar() {
         <div className="flex items-center justify-center divide-x-2  text-center xl:flex-col xl:mb-4 xl:divide-x-0">
           <Link href="/">
             {" "}
-            <h1 className="text-base xs:text-xl  xl:text-2xl 2xl:text-3xl font-bold pr-2 xl:pr-0">
+            <p className="text-base xs:text-xl  xl:text-2xl 2xl:text-3xl font-bold pr-2 xl:pr-0">
               Atakan Zengin
-            </h1>
+            </p>
           </Link>
 
-          <h2 className="text-sm xs:text-base xl:text-l 2xl:text-xl dark:text-slate-400 pl-2">
+          <p className="text-sm xs:text-base xl:text-l 2xl:text-xl dark:text-slate-400 pl-2">
             Software Engineer
-          </h2>
+          </p>
         </div>
       </div>
     </aside>

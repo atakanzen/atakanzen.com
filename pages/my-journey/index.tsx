@@ -87,7 +87,7 @@ const journeyPoints: JorneyPoint[] = [
     ),
     hasLink: true,
     linkType: "internal",
-    href: "/posts/almost-one-year-at-modanisa",
+    href: "/blog/almost-one-year-at-modanisa",
   },
   {
     title: "Successfully completed a software bootcamp",
