@@ -5,7 +5,7 @@ export const HOST =
 
 export const getOpenGraphImage = (title: string) => {
   return {
-    url: `${HOST}/api/og?title=${encodeURIComponent(title)}`,
+    url: `${HOST}/api/opengraph?title=${encodeURIComponent(title)}`,
     width: 1200,
     height: 630,
   };
