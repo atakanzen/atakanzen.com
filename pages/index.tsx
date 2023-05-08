@@ -2,7 +2,6 @@ import CardNavigation from "@/components/CardNavigation";
 import { CardNavigationProps } from "@/components/CardNavigation";
 import { getOpenGraphImage } from "@/lib/opengraph";
 import { NextSeo } from "next-seo";
-import Link from "next/link";
 
 const navigationCards: CardNavigationProps[] = [
   {
