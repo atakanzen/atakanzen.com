@@ -18,7 +18,27 @@ type Props = {
 
 // Injecting custom components for MDX Render Engine
 const components = {
-  a: (props: any) => <a {...props} target="_blank" rel="noreferrer" />,
+  a: (props: any) => (
+    <>
+      <a {...props} target="_blank" rel="noreferrer" />
+      <span className="inline-flex">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          className="w-3.5 h-3.5 relative top-0 right-0 text-current"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25"
+          />
+        </svg>
+      </span>
+    </>
+  ),
 };
 
 const PostPage = ({
@@ -51,35 +71,23 @@ const PostPage = ({
       ></NextSeo>
       <div className="flex flex-col items-start p-4 divide-y-2 gap-4 xl:max-w-4xl mx-auto">
         <div className="flex items-center gap-2 font-semibold">
-          <Link
-            href="/"
-            className="underline underline-offset-2 decoration-sky-400"
-          >
+          <Link href="/" className="underline underline-offset-2">
             Homepage
           </Link>
           <span>/</span>
-          <Link
-            href="/blog"
-            className="underline underline-offset-2 decoration-sky-400"
-          >
+          <Link href="/blog" className="underline underline-offset-2">
             Blog
           </Link>
         </div>
-        <article className="prose sm:prose-lg max-w-none pt-4 dark:prose-invert  prose-a:underline  prose-a:dark:text-sky-400 prose-a:text-sky-500 prose-pre:max-w-xs prose-pre:sm:max-w-none">
+        <article className="prose sm:prose-lg max-w-none pt-4 dark:prose-invert prose-a:underline prose-pre:max-w-xs prose-pre:sm:max-w-none">
           <MDXRemote {...mdxSource} components={components} lazy />
         </article>
         <div className="flex items-center w-full gap-2 font-semibold pt-4">
-          <Link
-            href="/"
-            className="underline underline-offset-2 decoration-sky-400"
-          >
+          <Link href="/" className="underline underline-offset-2 ">
             Homepage
           </Link>
           <span>/</span>
-          <Link
-            href="/blog"
-            className="underline underline-offset-2 decoration-sky-400"
-          >
+          <Link href="/blog" className="underline underline-offset-2 ">
             Blog
           </Link>
         </div>

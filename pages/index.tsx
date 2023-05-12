@@ -58,24 +58,19 @@ export default function Home() {
       <div className="flex flex-col items-center justify-center md:h-full gap-10">
         <div className="text-center xl:tracking-tight ">
           <h1 className="text-3xl xl:text-6xl font-bold mb-2">Hey there</h1>
-          <h2 className="text-2xl xl:text-5xl font-semibold text-slate-950 p-1 xl:p-2 rounded bg-gradient-to-r from-cyan-300 via-sky-500 to-blue-400">
+          <h2 className="text-2xl xl:text-5xl font-semibold">
             I help people by creating quality software.
           </h2>
         </div>
-        <div className="flex flex-col gap-4">
-          <p className="text-center text-lg">
-            Here are some useful pages, if you would like to know me better.
-          </p>
-          <div className="grid grid-cols-1 xl:grid-cols-2 gap-3">
-            {navigationCards.map((nc, i) => (
-              <CardNavigation
-                key={i}
-                title={nc.title}
-                description={nc.description}
-                href={nc.href}
-              />
-            ))}
-          </div>
+        <div className="grid grid-cols-1 xl:grid-cols-2 gap-4">
+          {navigationCards.map((nc, i) => (
+            <CardNavigation
+              key={i}
+              title={nc.title}
+              description={nc.description}
+              href={nc.href}
+            />
+          ))}
         </div>
       </div>
     </>

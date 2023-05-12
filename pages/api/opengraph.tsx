@@ -10,13 +10,8 @@ const font = fetch(
   new URL("../../public/fonts/Inter-Regular.ttf", import.meta.url)
 ).then((res) => res.arrayBuffer());
 
-const image = fetch(
-  new URL("../../public/images/profile.png", import.meta.url)
-).then((res) => res.arrayBuffer());
-
 const handler = async (req: NextRequest) => {
   try {
-    const imageData = await image;
     const fontData = await font;
 
     const { searchParams } = new URL(req.url!);
@@ -30,28 +25,20 @@ const handler = async (req: NextRequest) => {
         <div
           style={{
             fontFamily: "Inter",
+            fontWeight: 900,
           }}
           tw="flex items-center justify-center bg-white w-full h-full"
         >
-          <img
-            src={imageData as unknown as string}
-            alt="Atakan Zengin's Profile Logo"
-            width={600}
-            height={600}
-          />
-          <div tw="flex flex-wrap flex-col items-center justify-center">
-            <p tw="text-5xl text-center max-w-md">{title}</p>
-            <p tw="text-4xl text-white p-4 rounded-lg bg-sky-500">
-              atakanzen.com
-            </p>
+          <div tw="flex flex-col items-center justify-center w-full">
+            <p tw="text-6xl font-black text-center">{title}</p>
+            <a tw="text-3xl ">atakanzen.com</a>
           </div>
         </div>
       ),
       {
         width: 1200,
         height: 600,
-        fonts: [{ name: "Inter", data: fontData }],
-        emoji: "twemoji",
+        fonts: [{ name: "Inter", data: fontData, weight: 900 }],
       }
     );
   } catch (error: any) {

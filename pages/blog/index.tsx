@@ -7,6 +7,7 @@ import path from "path";
 import matter from "gray-matter";
 import { NextSeo } from "next-seo";
 import { getOpenGraphImage } from "@/lib/opengraph";
+import CardNavigation from "@/components/CardNavigation";
 
 type Post = {
   metadata: Record<string, any>;
@@ -46,10 +47,7 @@ const Posts = ({ posts }: Props) => {
       ></NextSeo>
       <div className="flex flex-col items-start p-4 divide-y-2 gap-4 xl:max-w-4xl mx-auto">
         <div className="flex items-center gap-2 font-semibold">
-          <Link
-            href="/"
-            className="underline underline-offset-2 decoration-sky-400"
-          >
+          <Link href="/" className="underline underline-offset-2">
             Homepage
           </Link>
           <span>/</span>
@@ -58,17 +56,13 @@ const Posts = ({ posts }: Props) => {
         <div className="w-full pt-4">
           <ul className="flex flex-col items-start gap-4 w-full">
             {posts.map((p, i) => (
-              <Link
+              <CardNavigation
                 key={i}
-                href={`/blog/${p.path}`}
-                className="dark:bg-slate-900 xl:hover:bg-slate-100 xl:dark:hover:bg-slate-800 w-full p-2 xl:p-4"
-              >
-                <h4 className="font-bold text-lg">{p.metadata.title}</h4>
-                <p className="text-base text-slate-500">{p.metadata.excerpt}</p>
-                <p className="text-sm text-slate-600">
-                  {new Date(p.metadata.date).toDateString()}
-                </p>
-              </Link>
+                title={p.metadata.title}
+                href={`blog/${p.path}`}
+                description={p.metadata.excerpt}
+                date={new Date(p.metadata.date).toDateString()}
+              />
             ))}
           </ul>
         </div>
