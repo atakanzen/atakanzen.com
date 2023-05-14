@@ -8,21 +8,24 @@ const navigationCards: CardNavigationProps[] = [
     href: "/blog",
     title: "Blog",
     description: "You can read what I write, occasionally.",
+    internal: true,
   },
   {
     href: "/my-journey",
     title: "Journey",
     description: "Check my journey, in a timeline format!",
+    internal: true,
   },
-  {
-    href: "/projects",
-    title: "Projects",
-    description: "Making Sundays less depressive.",
-  },
+  // {
+  //   href: "/projects",
+  //   title: "Projects",
+  //   description: "Making Sundays less depressive.",
+  // },
   {
     href: "/contact",
     title: "Contact",
     description: "Some useful links where I appear.",
+    internal: true,
   },
 ];
 
@@ -62,12 +65,13 @@ export default function Home() {
             I help people by creating quality software.
           </h2>
         </div>
-        <div className="grid grid-cols-1 xl:grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 gap-4 max-w-xl w-full">
           {navigationCards.map((nc, i) => (
             <CardNavigation
               key={i}
               title={nc.title}
               description={nc.description}
+              internal
               href={nc.href}
             />
           ))}

@@ -58,6 +58,7 @@ const Posts = ({ posts }: Props) => {
             {posts.map((p, i) => (
               <CardNavigation
                 key={i}
+                internal
                 title={p.metadata.title}
                 href={`blog/${p.path}`}
                 description={p.metadata.excerpt}

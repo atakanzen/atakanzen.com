@@ -79,7 +79,7 @@ const PostPage = ({
             Blog
           </Link>
         </div>
-        <article className="prose sm:prose-lg max-w-none pt-4 dark:prose-invert prose-a:underline prose-pre:max-w-xs prose-pre:sm:max-w-none">
+        <article className="prose sm:prose-lg max-w-none pt-4 dark:prose-invert prose-a:underline prose-pre:max-w-xs prose-pre:sm:max-w-none prose-pre:dark:bg-neutral-800 prose-pre:bg-neutral-900">
           <MDXRemote {...mdxSource} components={components} lazy />
         </article>
         <div className="flex items-center w-full gap-2 font-semibold pt-4">
