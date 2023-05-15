@@ -2,12 +2,15 @@ import { POST_PATHS, getPostSlug, postFilePaths } from "@/lib/mdx";
 import fs from "fs";
 import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from "next";
 import path from "path";
-import React, { useEffect } from "react";
+import React from "react";
 import { serialize } from "next-mdx-remote/serialize";
 import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote";
 import Link from "next/link";
 import { NextSeo } from "next-seo";
 import { getOpenGraphImage } from "@/lib/opengraph";
+import { Inter } from "next/font/google";
+
+const inter = Inter({ subsets: ["latin"] });
 
 type Props = {
   mdxSource: MDXRemoteSerializeResult<
@@ -39,6 +42,8 @@ const components = {
       </span>
     </>
   ),
+  // p: (props: any) => <p {...props} className={`${inter.className}`}></p>,
+  // li: (props: any) => <li {...props} className={`${inter.className}`}></li>,
 };
 
 const PostPage = ({
@@ -79,7 +84,7 @@ const PostPage = ({
             Blog
           </Link>
         </div>
-        <article className="prose sm:prose-lg max-w-none pt-4 dark:prose-invert prose-a:underline prose-pre:max-w-xs prose-pre:sm:max-w-none prose-pre:dark:bg-neutral-800 prose-pre:bg-neutral-900">
+        <article className="prose sm:prose-lg max-w-none pt-4 dark:prose-invert prose-a:underline prose-pre:max-w-xs prose-pre:sm:max-w-none prose-pre:dark:bg-neutral-800 prose-pre:bg-neutral-900 prose-p:">
           <MDXRemote {...mdxSource} components={components} lazy />
         </article>
         <div className="flex items-center w-full gap-2 font-semibold pt-4">

@@ -1,5 +1,11 @@
+import { Atkinson_Hyperlegible } from "next/font/google";
 import Image from "next/image";
 import Link from "next/link";
+
+const atkinson = Atkinson_Hyperlegible({
+  weight: ["400", "700"],
+  subsets: ["latin"],
+});
 
 export default function Sidebar() {
   return (
@@ -29,7 +35,9 @@ export default function Sidebar() {
           </div>
         </div>
         {/* Title */}
-        <div className="flex items-center justify-center divide-x-2  text-center xl:flex-col xl:mb-4 xl:divide-x-0">
+        <div
+          className={`flex items-center justify-center divide-x-2  text-center xl:flex-col xl:mb-4 xl:divide-x-0 ${atkinson.className}`}
+        >
           <Link href="/">
             {" "}
             <p className="text-base xs:text-xl  xl:text-2xl 2xl:text-3xl font-bold pr-2 xl:pr-0">
@@ -37,7 +45,7 @@ export default function Sidebar() {
             </p>
           </Link>
 
-          <p className="text-sm xs:text-base xl:text-l 2xl:text-xl dark:text-slate-400 pl-2">
+          <p className="text-sm xs:text-base xl:text-l 2xl:text-xl dark:text-neutral-300 pl-2">
             Software Engineer
           </p>
         </div>

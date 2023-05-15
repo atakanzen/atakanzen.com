@@ -2,18 +2,19 @@ import CardNavigation from "@/components/CardNavigation";
 import { CardNavigationProps } from "@/components/CardNavigation";
 import { getOpenGraphImage } from "@/lib/opengraph";
 import { NextSeo } from "next-seo";
+import { Atkinson_Hyperlegible } from "next/font/google";
 
 const navigationCards: CardNavigationProps[] = [
   {
     href: "/blog",
     title: "Blog",
-    description: "You can read what I write, occasionally.",
+    // description: "You can read what I write, occasionally.",
     internal: true,
   },
   {
     href: "/my-journey",
     title: "Journey",
-    description: "Check my journey, in a timeline format!",
+    // description: "Check my journey, in a timeline format!",
     internal: true,
   },
   // {
@@ -24,10 +25,15 @@ const navigationCards: CardNavigationProps[] = [
   {
     href: "/contact",
     title: "Contact",
-    description: "Some useful links where I appear.",
+    // description: "Some useful links where I appear.",
     internal: true,
   },
 ];
+
+const atkinson = Atkinson_Hyperlegible({
+  weight: ["400", "700"],
+  subsets: ["latin"],
+});
 
 export default function Home() {
   return (
@@ -59,18 +65,18 @@ export default function Home() {
       ></NextSeo>
 
       <div className="flex flex-col items-center justify-center md:h-full gap-10">
-        <div className="text-center xl:tracking-tight ">
-          <h1 className="text-3xl xl:text-6xl font-bold mb-2">Hey there</h1>
+        <div className={`text-center xl:tracking-tight ${atkinson.className}`}>
+          <h1 className="text-3xl xl:text-6xl font-bold mb-2">Hey there!</h1>
           <h2 className="text-2xl xl:text-5xl font-semibold">
             I help people by creating quality software.
           </h2>
         </div>
-        <div className="grid grid-cols-1 gap-4 max-w-xl w-full">
+        <div className="grid grid-cols-1 xl:grid-cols-3 gap-4 xl:gap-8 max-w-md w-full">
           {navigationCards.map((nc, i) => (
             <CardNavigation
               key={i}
               title={nc.title}
-              description={nc.description}
+              // description={nc.description}
               internal
               href={nc.href}
             />
