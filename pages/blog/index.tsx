@@ -63,6 +63,7 @@ const Posts = ({ posts }: Props) => {
                 href={`blog/${p.path}`}
                 description={p.metadata.excerpt}
                 date={new Date(p.metadata.date).toDateString()}
+                fromHomePage={false}
               />
             ))}
           </ul>

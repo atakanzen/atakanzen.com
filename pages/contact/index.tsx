@@ -10,24 +10,28 @@ const navigationCards: CardNavigationProps[] = [
     title: "E-mail",
     description: "Ask me anything you want.",
     internal: false,
+    fromHomePage: false,
   },
   {
     href: "https://linkedin.com/in/atakanzen",
     title: "LinkedIn",
     description: "You can learn more about my career and interests here.",
     internal: false,
+    fromHomePage: false,
   },
   {
     href: "https://github.com/atakanzen",
     title: "GitHub",
     description: "Everything about me and software.",
     internal: false,
+    fromHomePage: false,
   },
   {
     href: "https://twitter.com/atakanzen_",
     title: "Twitter",
     description: "Sometimes I share my thoughts here too.",
     internal: false,
+    fromHomePage: false,
   },
 ];
 
