@@ -83,6 +83,8 @@ export const getStaticProps: GetStaticProps = async (context) => {
     };
   });
 
+  posts = posts.filter((p) => p.metadata.published);
+
   posts = posts.sort(
     (a, b) =>
       new Date(b.metadata.date).getTime() - new Date(a.metadata.date).getTime()

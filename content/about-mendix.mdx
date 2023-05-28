@@ -1,0 +1,70 @@
+---
+title: About Low-Code
+author: Atakan Zengin
+date: May 28, 2023
+excerpt: My personal take on low-code.
+slug: about-low-code
+published: false
+---
+
+# Mendix
+
+<aside>
+⚠️ Disclaimer: This post is opinionated and is based on my perspective and thoughts. You don’t need to agree with me, but I will make my statements.
+
+</aside>
+
+## Background
+
+Until a year ago, I was a software engineer who enjoyed writing code and unit tests to help people by creating quality software solutions. Now don’t get me wrong, I still am. However, instead of writing code, nowadays I drag-and-drop boxes around.
+
+Now if you’re really unfamiliar with the low-code environment, you may think that I started working as a warehouse worker from the previous paragraph. The truth is, I’ve been developing software solutions with a low-code platform called Mendix, which provides a set of pre-configured tools to create web applications really fast.
+
+Because, I’ve been working with a low-code platform for more than a year now, I feel like it’s time for me to write a blog post about my experiences and thoughts. Therefore, in this post, I’ll be comparing the two approaches for software solutions by creating an analogy based on two ways of traveling.
+
+## Low-Code: A public high-speed train
+
+The main purpose of a high-speed train is: getting you from point A to point B in short time thanks to its speed. That sounds good, It’s really nice to arrive to your destination fast. However, this is true only if your sole purpose is to arrive there. Therefore, high-speed trains are nice until you want to add some more value to your trip, or change something based on your preferences.
+
+The most obvious drawbacks of using high-speed trains are that they are not always punctual, you are obliged to buy food and water from an overpriced mobile minibar (as if minibars alone were not scary enough), and it's impossible to make detours based on your own will.
+
+Well, low-code development is almost identical to high-speed public trains. Both of their benefits and drawbacks are quite similar to each other. Let’s see how.
+
+### Benefits of Low-Code
+
+It’s absurdly fast to create functionalities with Mendix. Especially, if your application is just a simple create-read-update-delete application with additional cherry on the cake features.
+
+Creating an initial data model for your application only takes 10 minutes with the basic requirements. The same speed applies to creating the logic of your application. It's just a matter of making a flowchart that my fellow CS graduates can remember from their Algorithms 101 classes.
+
+The entire platform is built around visualizations of your functionalities and data model, making it easy to onboard new developers to your project. The visual approach simplifies understanding and makes things more accessible.
+
+Once you have clear requirements from your Product Owner and Stakeholders, you're all set. In fact, you can encourage your Product Owners to create a business process flow that helps “write the code” for you.
+
+Moreover, Mendix also provides you with tools to create custom and complex functionalities, such as exposing a REST API, writing Java functions, and developing your own React components. However, since a software engineer can develop all of these functionalities outside of Mendix, I don't see any reason to depend on the platform in the first place when aiming to create a complex application.
+
+### Drawbacks of Low-Code
+
+First and foremost, the Git version control system provided by Mendix can be challenging when working in a large team. My main issue arises when I need to stash a work-in-progress change before pulling in new changes, as Mendix's Git wrapper does not support stashing. Consequently, to prevent losing all of your changes, you have to commit them anyway and then create a merge commit. I dislike having messy version control histories, and it's disappointing that Mendix lacks a developer experience friendly solution for this.
+
+Speaking of Git and big teams, using branching strategies other than sprint-branch strategies can be nearly impossible due to frequent conflicts that arise. Additionally, since Mendix lacks a stash concept, the primary method to resolve a merge conflict in a file is to duplicate it and manually move the changes by hand.
+
+<aside>
+💡 TODO: PERFORMANCE
+
+</aside>
+
+## High-Code: Your own personal car
+
+<aside>
+💡 TODO: A section with the same structure above
+
+</aside>
+
+## Final
+
+<aside>
+💡 A summary, with a comedic ending about my own preference, which is high-code.
+
+</aside>
+
+![https://media3.giphy.com/media/UrbnbuU24p1zgyDMUH/giphy.gif?cid=7941fdc61lk5p6daqigj3zddrp5qsvqrt0rhf4vlwulkk0vr&ep=v1_gifs_search&rid=giphy.gif&ct=g](https://media3.giphy.com/media/UrbnbuU24p1zgyDMUH/giphy.gif?cid=7941fdc61lk5p6daqigj3zddrp5qsvqrt0rhf4vlwulkk0vr&ep=v1_gifs_search&rid=giphy.gif&ct=g)

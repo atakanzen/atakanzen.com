@@ -10,12 +10,14 @@ const navigationCards: CardNavigationProps[] = [
     title: "Blog",
     // description: "You can read what I write, occasionally.",
     internal: true,
+    fromHomePage: true,
   },
   {
     href: "/my-journey",
     title: "Journey",
     // description: "Check my journey, in a timeline format!",
     internal: true,
+    fromHomePage: true,
   },
   // {
   //   href: "/projects",
@@ -27,6 +29,7 @@ const navigationCards: CardNavigationProps[] = [
     title: "Contact",
     // description: "Some useful links where I appear.",
     internal: true,
+    fromHomePage: true,
   },
 ];
 
@@ -71,15 +74,9 @@ export default function Home() {
             I help people by creating quality software.
           </h2>
         </div>
-        <div className="grid grid-cols-1 xl:grid-cols-3 gap-4 xl:gap-8 max-w-md w-full">
+        <div className="grid grid-cols-3 gap-4 xl:gap-8 ">
           {navigationCards.map((nc, i) => (
-            <CardNavigation
-              key={i}
-              title={nc.title}
-              // description={nc.description}
-              internal
-              href={nc.href}
-            />
+            <CardNavigation key={i} {...nc} />
           ))}
         </div>
       </div>
