@@ -1,3 +1,4 @@
+import dynamic from "next/dynamic";
 import { Atkinson_Hyperlegible } from "next/font/google";
 import Image from "next/image";
 import Link from "next/link";
@@ -30,6 +31,7 @@ export default function Sidebar() {
               alt="Atakan Zengin's Profile Logo"
               className="object-contain saturate-100 inline"
               fill
+              sizes="30vw"
               priority
             />
           </div>

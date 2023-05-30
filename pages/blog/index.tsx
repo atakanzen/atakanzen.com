@@ -54,7 +54,7 @@ const Posts = ({ posts }: Props) => {
           <h1>Blog</h1>
         </div>
         <div className="w-full pt-4">
-          <ul className="flex flex-col items-start gap-4 w-full">
+          <div className="flex flex-col items-start gap-4 w-full">
             {posts.map((p, i) => (
               <CardNavigation
                 key={i}
@@ -66,7 +66,7 @@ const Posts = ({ posts }: Props) => {
                 fromHomePage={false}
               />
             ))}
-          </ul>
+          </div>
         </div>
       </div>
     </>
@@ -84,7 +84,9 @@ export const getStaticProps: GetStaticProps = async (context) => {
     };
   });
 
-  posts = posts.filter((p) => p.metadata.published);
+  posts = posts.filter((p) =>
+    process.env.NODE_ENV === "development" ? p : p.metadata.published
+  );
 
   posts = posts.sort(
     (a, b) =>

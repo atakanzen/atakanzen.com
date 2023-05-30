@@ -92,7 +92,7 @@ const MyJourney = () => {
           Homepage
         </Link>
         <span>/</span>
-        <h2>My Journey</h2>
+        <h1>My Journey</h1>
       </div>
       <div className="pt-4">
         <ol className="relative border-l border-neutral-300">

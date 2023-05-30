@@ -22,9 +22,9 @@ const CardNavigation = ({
   return internal ? (
     <Link
       href={href}
-      className={`group xl:hover:text-current border-l ${
-        fromHomePage ? "border-b border-l-0 pl-0" : null
-      } xl:border-neutral-600 xl:hover:border-current text-current xl:text-neutral-600 pl-2 w-full`}
+      className={`group xl:hover:text-current  ${
+        fromHomePage ? "border-b pl-0" : "border-l pl-2"
+      } xl:border-neutral-600 xl:hover:border-current text-current xl:text-neutral-600 w-full`}
     >
       <h3
         className={`text-xl font-bold ${fromHomePage ? "text-center" : null}`}
