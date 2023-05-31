@@ -22,8 +22,7 @@ const Posts = ({ posts }: Props) => {
   return (
     <>
       <NextSeo
-        titleTemplate="Blog - %s"
-        title="Atakan Zengin"
+        title="Atakan Zengin - Blog"
         description="This is my blog which you can find my posts and notes about the things I'm working with or find interesting."
         canonical="https://atakanzen.com/posts"
         twitter={{
