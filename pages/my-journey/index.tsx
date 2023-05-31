@@ -1,3 +1,5 @@
+import { getOpenGraphImage } from "@/lib/opengraph";
+import { NextSeo } from "next-seo";
 import Link from "next/link";
 import React, { ReactElement } from "react";
 
@@ -86,63 +88,91 @@ const journeyPoints: JorneyPoint[] = [
 
 const MyJourney = () => {
   return (
-    <div className="flex flex-col items-start gap-4 divide-y-2 justify-center xl:h-full xl:max-w-4xl mx-auto">
-      <div className="flex items-center justify-start gap-2 font-semibold">
-        <Link href="/" className="underline underline-offset-2 font-semibold">
-          Homepage
-        </Link>
-        <span>/</span>
-        <h1>My Journey</h1>
-      </div>
-      <div className="pt-4">
-        <ol className="relative border-l border-neutral-300">
-          {journeyPoints.map((j, i) => (
-            <li key={i} className="ml-4 my-4">
-              <div className="absolute w-2 h-2 bg-neutral-300 rounded-full mt-0.5 -left-[0.275rem]"></div>
-              <div className="flex items-center gap-2 divide-x divide-neutral-400">
-                <time className="mb-1 text-sm font-normal leading-none text-neutral-500">
-                  {j.startDate.toLocaleDateString("en", {
-                    year: "numeric",
-                    month: "long",
-                  })}
-                </time>
-                {j.endDate ? (
-                  <>
-                    <time className="pl-2 mb-1 text-sm font-normal leading-none text-neutral-500 ">
-                      {j.endDate.toLocaleDateString("en", {
-                        year: "numeric",
-                        month: "long",
-                      })}
-                    </time>
-                  </>
+    <>
+      <NextSeo
+        title="Atakan Zengin - My Journey"
+        titleTemplate="%s"
+        description="You can learn more about my journey with a timeline format."
+        canonical="https://atakanzen.com/my-journey"
+        twitter={{
+          handle: "@atakanzen_",
+          cardType: "summary_large_image",
+        }}
+        openGraph={{
+          type: "website",
+          url: "https://atakanzen.com/my-journey",
+          title: "Atakan Zengin - My Journey",
+          description:
+            "You can learn more about my journey with a timeline format.",
+          images: [getOpenGraphImage("Atakan Zengin - My Journey")],
+        }}
+        additionalMetaTags={[
+          {
+            name: "keywords",
+            content:
+              "Atakan Zengin, Software Engineer, Zengin, Atakan, Personal Blog, Technology Blog, My Journey, Journey",
+          },
+        ]}
+      ></NextSeo>
+
+      <div className="flex flex-col items-start gap-4 divide-y-2 justify-center xl:h-full xl:max-w-4xl mx-auto">
+        <div className="flex items-center justify-start gap-2 font-semibold">
+          <Link href="/" className="underline underline-offset-2 font-semibold">
+            Homepage
+          </Link>
+          <span>/</span>
+          <h1>My Journey</h1>
+        </div>
+        <div className="pt-4">
+          <ol className="relative border-l border-neutral-300">
+            {journeyPoints.map((j, i) => (
+              <li key={i} className="ml-4 my-4">
+                <div className="absolute w-2 h-2 bg-neutral-300 rounded-full mt-0.5 -left-[0.275rem]"></div>
+                <div className="flex items-center gap-2 divide-x divide-neutral-400">
+                  <time className="mb-1 text-sm font-normal leading-none text-neutral-500">
+                    {j.startDate.toLocaleDateString("en", {
+                      year: "numeric",
+                      month: "long",
+                    })}
+                  </time>
+                  {j.endDate ? (
+                    <>
+                      <time className="pl-2 mb-1 text-sm font-normal leading-none text-neutral-500 ">
+                        {j.endDate.toLocaleDateString("en", {
+                          year: "numeric",
+                          month: "long",
+                        })}
+                      </time>
+                    </>
+                  ) : null}
+                </div>
+                <h3 className="text-lg font-semibold">{j.title}</h3>
+                <div className="text-neutral-300">{j.description}</div>
+                {j.hasLink ? (
+                  j.linkType === "internal" ? (
+                    <Link
+                      className="inline-flex items-center underline mt-2  font-semibold"
+                      href={j.href!}
+                    >
+                      See more here
+                    </Link>
+                  ) : j.linkType === "external" ? (
+                    <a
+                      className="inline-flex items-center underline mt-2 font-semibold"
+                      href={j.href!}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      See more here
+                    </a>
+                  ) : null
                 ) : null}
-              </div>
-              <h3 className="text-lg font-semibold">{j.title}</h3>
-              <div className="text-neutral-300">{j.description}</div>
-              {j.hasLink ? (
-                j.linkType === "internal" ? (
-                  <Link
-                    className="inline-flex items-center underline mt-2  font-semibold"
-                    href={j.href!}
-                  >
-                    See more here
-                  </Link>
-                ) : j.linkType === "external" ? (
-                  <a
-                    className="inline-flex items-center underline mt-2 font-semibold"
-                    href={j.href!}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    See more here
-                  </a>
-                ) : null
-              ) : null}
-            </li>
-          ))}
-        </ol>
+              </li>
+            ))}
+          </ol>
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 
