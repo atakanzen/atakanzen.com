@@ -60,7 +60,7 @@ const journeyPoints: JorneyPoint[] = [
         <span className="font-semibold">Go micro-services</span> and{" "}
         <span className="font-semibold">Vue micro-frontends</span> in{" "}
         <span className="font-semibold">Search & Listing</span> domain to
-        improve customer retention and revenu streams
+        improve customer retention and revenue streams
       </p>
     ),
     hasLink: true,
@@ -118,7 +118,7 @@ const MyJourney = () => {
                 ) : null}
               </div>
               <h3 className="text-lg font-semibold">{j.title}</h3>
-              <p className="text-neutral-400">{j.description}</p>
+              <div className="text-neutral-300">{j.description}</div>
               {j.hasLink ? (
                 j.linkType === "internal" ? (
                   <Link
