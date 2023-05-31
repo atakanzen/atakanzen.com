@@ -7,21 +7,6 @@ export default function Document() {
   return (
     <Html lang="en">
       <Head>
-        {/* Google Tag */}
-        <Script
-          src={`https://www.googletagmanager.com/gtag/js?id=${gtagId}`}
-          strategy="afterInteractive"
-        />
-        <Script id="google-analytics" strategy="afterInteractive">
-          {`
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-
-          gtag('config', '${gtagId}');
-      `}
-        </Script>
-
         <link
           rel="apple-touch-icon"
           sizes="180x180"
