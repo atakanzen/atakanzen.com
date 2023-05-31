@@ -1,4 +1,4 @@
-import { POST_PATHS, postFilePaths } from "@/lib/mdx";
+import { POST_PATHS, getAllPosts, postFilePaths } from "@/lib/mdx";
 import { GetStaticProps } from "next";
 import fs from "fs";
 import Link from "next/link";
@@ -9,7 +9,7 @@ import { NextSeo } from "next-seo";
 import { getOpenGraphImage } from "@/lib/opengraph";
 import CardNavigation from "@/components/CardNavigation";
 
-type Post = {
+export type Post = {
   metadata: Record<string, any>;
   path: String;
 };
@@ -73,24 +73,7 @@ const Posts = ({ posts }: Props) => {
 };
 
 export const getStaticProps: GetStaticProps = async (context) => {
-  let posts = postFilePaths.map((fp) => {
-    const source = fs.readFileSync(path.join(POST_PATHS, fp));
-    const { content, data } = matter(source);
-
-    return {
-      metadata: data,
-      path: fp.replace(/\.mdx?$/, ""),
-    };
-  });
-
-  posts = posts.filter((p) =>
-    process.env.NODE_ENV === "development" ? p : p.metadata.published
-  );
-
-  posts = posts.sort(
-    (a, b) =>
-      new Date(b.metadata.date).getTime() - new Date(a.metadata.date).getTime()
-  );
+  const posts = getAllPosts();
   return { props: { posts } };
 };
 
