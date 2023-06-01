@@ -24,7 +24,7 @@ const CardNavigation = ({
       href={href}
       className={`group xl:hover:text-current  ${
         fromHomePage ? "border-b pl-0" : "border-l pl-2"
-      } xl:border-neutral-400 xl:hover:border-current text-current xl:text-neutral-400 w-full`}
+      } xl:border-neutral-600 xl:hover:border-current text-current xl:text-neutral-600 w-full`}
     >
       <h3
         className={`text-xl font-bold ${fromHomePage ? "text-center" : null}`}
@@ -39,7 +39,7 @@ const CardNavigation = ({
       href={href as string}
       target="_blank"
       rel="noopener noreferrer"
-      className="group xl:hover:text-current border-l xl:border-neutral-400 xl:hover:border-current text-current xl:text-neutral-400 pl-2 w-full"
+      className="group xl:hover:text-current border-l xl:border-neutral-600 xl:hover:border-current text-current xl:text-neutral-600 pl-2 w-full"
     >
       <div className="flex justify-between">
         <h3 className="text-xl font-bold ">{title}</h3>

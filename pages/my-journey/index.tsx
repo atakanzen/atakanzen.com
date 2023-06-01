@@ -124,10 +124,10 @@ const MyJourney = () => {
           <h1>My Journey</h1>
         </div>
         <div className="pt-4">
-          <ol className="relative border-l border-neutral-300">
+          <ol className="relative border-l border-neutral-400">
             {journeyPoints.map((j, i) => (
               <li key={i} className="ml-4 my-4">
-                <div className="absolute w-2 h-2 bg-neutral-300 rounded-full mt-0.5 -left-[0.275rem]"></div>
+                <div className="absolute w-2 h-2 bg-neutral-400 rounded-full mt-0.5 -left-[0.275rem]"></div>
                 <div className="flex items-center gap-2 divide-x divide-neutral-400">
                   <time className="mb-1 text-sm font-normal leading-none text-neutral-500">
                     {j.startDate.toLocaleDateString("en", {
@@ -147,7 +147,7 @@ const MyJourney = () => {
                   ) : null}
                 </div>
                 <h3 className="text-lg font-semibold">{j.title}</h3>
-                <div className="text-neutral-300">{j.description}</div>
+                <div className="text-neutral-500">{j.description}</div>
                 {j.hasLink ? (
                   j.linkType === "internal" ? (
                     <Link
