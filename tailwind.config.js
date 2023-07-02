@@ -19,6 +19,9 @@ module.exports = {
         xs: "475px",
         ...defaultTheme.screens,
       },
+      transitionProperty: {
+        width: "width",
+      },
     },
   },
   plugins: [require("@tailwindcss/typography")],

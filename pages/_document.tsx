@@ -24,6 +24,16 @@ export default function Document() {
         />
         <link rel="icon" type="image/x-icon" href="/favicon.ico?v=2" />
         <link rel="manifest" href="/site.webmanifest" />
+        <meta
+          name="theme-color"
+          content="#f8fafc"
+          media="(prefers-color-scheme: light)"
+        />
+        <meta
+          name="theme-color"
+          content="#020602"
+          media="(prefers-color-scheme: dark)"
+        />
       </Head>
       <body>
         <Main />

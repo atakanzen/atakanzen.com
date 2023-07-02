@@ -8,7 +8,7 @@ type CardNavigationProps = {
   description?: string;
   date?: string;
   internal: boolean;
-  fromHomePage: boolean;
+  className?: string;
 };
 
 const CardNavigation = ({
@@ -17,20 +17,14 @@ const CardNavigation = ({
   description,
   date,
   internal,
-  fromHomePage,
+  className,
 }: CardNavigationProps) => {
   return internal ? (
     <Link
       href={href}
-      className={`group xl:hover:text-current  ${
-        fromHomePage ? "border-b pl-0" : "border-l pl-2"
-      } xl:border-neutral-600 xl:hover:border-current text-current xl:text-neutral-600 w-full`}
+      className={`group xl:hover:text-current text-current xl:text-neutral-400 w-full ${className}`}
     >
-      <h3
-        className={`text-xl font-bold ${fromHomePage ? "text-center" : null}`}
-      >
-        {title}
-      </h3>
+      <h3 className={`text-xl font-bold `}>{title}</h3>
       {description ? <p>{description}</p> : null}
       {date ? <p className="text-sm">{date}</p> : null}
     </Link>
@@ -39,7 +33,7 @@ const CardNavigation = ({
       href={href as string}
       target="_blank"
       rel="noopener noreferrer"
-      className="group xl:hover:text-current border-l xl:border-neutral-600 xl:hover:border-current text-current xl:text-neutral-600 pl-2 w-full"
+      className={`group xl:hover:text-current text-current xl:text-neutral-400 w-full ${className}`}
     >
       <div className="flex justify-between">
         <h3 className="text-xl font-bold ">{title}</h3>
