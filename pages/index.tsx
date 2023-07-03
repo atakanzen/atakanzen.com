@@ -78,18 +78,16 @@ export default function Home({ pinnedPosts }: HomeProps) {
 
       <div className="flex flex-col max-w-5xl mx-auto gap-10">
         <div className={`xl:tracking-tight ${atkinson.className}`}>
-          <h1 className="text-3xl xl:text-6xl font-bold mb-2">
-            Atakan Zengin;
-          </h1>
+          <h1 className="text-3xl xl:text-6xl font-bold">Atakan Zengin;</h1>
           <h2 className={`text-2xl xl:text-5xl font-semibold`}>
             helps people by{" "}
-            <span className="text-yellow-500 underline">
+            <span className="text-blue-500 dark:text-yellow-500  underline">
               writing quality software.
             </span>
           </h2>
         </div>
         <div className="flex flex-col gap-2 items-start">
-          <h3 className="text-2xl font-semibold float-left">Pinned Posts</h3>
+          <h3 className="text-xl font-semibold float-left">Pinned Posts</h3>
           <div className="flex flex-col gap-2">
             {pinnedPosts.map((p, i) => (
               <CardNavigation
