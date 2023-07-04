@@ -136,7 +136,7 @@ const MyJourney = () => {
           <h1>My Journey</h1>
         </div>
         <div className="pt-4">
-          <ol className="relative border-l border-neutral-600 -z-50">
+          <ol className="relative border-l border-neutral-600 ">
             {journeyPoints.map((j, i) => (
               <li key={i} className="ml-4 my-4">
                 <div className="absolute w-2 h-2 bg-neutral-600 rounded-full mt-0.5 -left-[0.275rem]"></div>
