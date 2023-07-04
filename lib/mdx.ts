@@ -35,3 +35,11 @@ export const getAllPosts = () => {
 
   return posts;
 };
+
+export const getPinnedPosts = () => {
+  let posts = getAllPosts();
+
+  posts = posts.filter((p) => p.metadata.pinned);
+
+  return posts;
+};

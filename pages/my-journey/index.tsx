@@ -18,10 +18,9 @@ const journeyPoints: JorneyPoint[] = [
     title: "Software Engineer @ GSK",
     startDate: new Date(2022, 0),
     description: (
-      <p className="text-base font-normal">
-        I&apos;m contributing to GSK&apos;s various R&D Tech projects with{" "}
-        <span className="font-semibold">React</span> and{" "}
-        <span className="font-semibold">ASP.NET Web API</span> technologies{" "}
+      <p className="text-sm lg:text-base font-normal">
+        I&apos;m contributing to GSK&apos;s various R&D Tech projects with
+        various technologies
       </p>
     ),
     hasLink: false,
@@ -30,11 +29,13 @@ const journeyPoints: JorneyPoint[] = [
     title: "Moved to Poland",
     startDate: new Date(2021, 8),
     description: (
-      <p className="text-base font-normal ">
+      <p className="text-sm lg:text-base font-normal ">
         I made a tough call, and moved to Poland to follow an academic path in
         my passion –– technology. I&apos;m currently studying{" "}
-        <span className="font-semibold">Information Technology</span> for a
-        Bachelor of Engineering degree.
+        <span className="font-semibold dark:text-neutral-100">
+          Information Technology
+        </span>{" "}
+        for a Bachelor of Engineering degree.
       </p>
     ),
     hasLink: false,
@@ -43,10 +44,11 @@ const journeyPoints: JorneyPoint[] = [
     title: "First Bachelor's Degree",
     startDate: new Date(2021, 5),
     description: (
-      <p className="text-base font-normal ">
+      <p className="text-sm lg:text-base font-normal ">
         I have completed my studies in English Translation and Interpration with
-        a <span className="font-semibold">GPA of 3.25</span>, enabling me with
-        exceptional communication skills.
+        a{" "}
+        <span className="font-semibold dark:text-neutral-100">GPA of 3.25</span>
+        , enabling me with exceptional communication skills.
       </p>
     ),
     hasLink: false,
@@ -56,13 +58,21 @@ const journeyPoints: JorneyPoint[] = [
     startDate: new Date(2020, 9),
     endDate: new Date(2021, 7),
     description: (
-      <p className="text-base font-normal ">
+      <p className="text-sm lg:text-base font-normal">
         I contributed to Modanisa&apos;s digital transformation journey from a
         monolith architecture to{" "}
-        <span className="font-semibold">Go micro-services</span> and{" "}
-        <span className="font-semibold">Vue micro-frontends</span> in{" "}
-        <span className="font-semibold">Search & Listing</span> domain to
-        improve customer retention and revenue streams
+        <span className="font-semibold dark:text-neutral-100">
+          Go micro-services
+        </span>{" "}
+        and{" "}
+        <span className="font-semibold dark:text-neutral-100">
+          Vue micro-frontends
+        </span>{" "}
+        in{" "}
+        <span className="font-semibold dark:text-neutral-100">
+          Search & Listing
+        </span>{" "}
+        domain to improve customer retention and revenue streams
       </p>
     ),
     hasLink: true,
@@ -74,12 +84,14 @@ const journeyPoints: JorneyPoint[] = [
     startDate: new Date(2020, 0),
     endDate: new Date(2020, 8),
     description: (
-      <p className="text-base font-normal ">
+      <p className="text-sm lg:text-base font-normal ">
         I laid a foundation for my software career by focusing on{" "}
-        <span className="font-semibold ">ASP.NET MVC Web Apps</span>,{" "}
-        <span className="font-semibold ">HTML5</span>,{" "}
-        <span className="font-semibold ">CSS</span>, and{" "}
-        <span className="font-semibold ">JavaScript</span>
+        <span className="font-semibold dark:text-neutral-100">
+          ASP.NET MVC Web Apps
+        </span>
+        , <span className="font-semibold dark:text-neutral-100">HTML5</span>,{" "}
+        <span className="font-semibold dark:text-neutral-100">CSS</span>, and{" "}
+        <span className="font-semibold dark:text-neutral-100">JavaScript</span>
       </p>
     ),
     hasLink: false,
@@ -118,18 +130,18 @@ const MyJourney = () => {
       <div className="flex flex-col items-start gap-4 divide-y-2 justify-center xl:h-full xl:max-w-4xl mx-auto">
         <div className="flex items-center justify-start gap-2 font-semibold">
           <Link href="/" className="underline underline-offset-2 font-semibold">
-            Homepage
+            Home
           </Link>
           <span>/</span>
           <h1>My Journey</h1>
         </div>
         <div className="pt-4">
-          <ol className="relative border-l border-neutral-400">
+          <ol className="relative border-l border-neutral-600 ">
             {journeyPoints.map((j, i) => (
               <li key={i} className="ml-4 my-4">
-                <div className="absolute w-2 h-2 bg-neutral-400 rounded-full mt-0.5 -left-[0.275rem]"></div>
-                <div className="flex items-center gap-2 divide-x divide-neutral-400">
-                  <time className="mb-1 text-sm font-normal leading-none text-neutral-500">
+                <div className="absolute w-2 h-2 bg-neutral-600 rounded-full mt-0.5 -left-[0.275rem]"></div>
+                <div className="flex items-center gap-2 divide-x divide-neutral-600">
+                  <time className="mb-1 text-sm font-normal leading-none dark:text-neutral-400 text-neutral-600">
                     {j.startDate.toLocaleDateString("en", {
                       year: "numeric",
                       month: "long",
@@ -137,7 +149,7 @@ const MyJourney = () => {
                   </time>
                   {j.endDate ? (
                     <>
-                      <time className="pl-2 mb-1 text-sm font-normal leading-none text-neutral-500 ">
+                      <time className="pl-2 mb-1 text-sm font-normal leading-none dark:text-neutral-400 text-neutral-600 ">
                         {j.endDate.toLocaleDateString("en", {
                           year: "numeric",
                           month: "long",
@@ -147,11 +159,11 @@ const MyJourney = () => {
                   ) : null}
                 </div>
                 <h3 className="text-lg font-semibold">{j.title}</h3>
-                <div className="text-neutral-500">{j.description}</div>
+                <div className="dark:text-neutral-400">{j.description}</div>
                 {j.hasLink ? (
                   j.linkType === "internal" ? (
                     <Link
-                      className="inline-flex items-center underline mt-2  font-semibold"
+                      className="inline-flex items-center underline mt-2 text-blue-500 dark:text-yellow-500  font-semibold"
                       href={j.href!}
                     >
                       See more here

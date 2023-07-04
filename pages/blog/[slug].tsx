@@ -24,14 +24,14 @@ const components = {
   a: (props: any) => (
     <>
       <a {...props} target="_blank" rel="noreferrer" />
-      <span className="inline-flex">
+      <span className="inline-flex -z-50">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
           viewBox="0 0 24 24"
           strokeWidth="1.5"
           stroke="currentColor"
-          className="w-3.5 h-3.5 relative top-0 right-0 text-current"
+          className="w-3.5 h-3.5 relative top-0 right-0 text-current -z-50"
         >
           <path
             strokeLinecap="round"
@@ -77,19 +77,19 @@ const PostPage = ({
       <div className="flex flex-col items-start px-4 py-8 divide-y-2 gap-4 xl:max-w-4xl mx-auto">
         <div className="flex items-center gap-2 font-semibold">
           <Link href="/" className="underline underline-offset-2">
-            Homepage
+            Home
           </Link>
           <span>/</span>
           <Link href="/blog" className="underline underline-offset-2">
             Blog
           </Link>
         </div>
-        <article className="prose xl:prose-lg prose-blue dark:prose-amber max-w-none pt-4 dark:prose-invert prose-a:underline prose-pre:max-w-xs prose-pre:sm:max-w-none prose-pre:dark:bg-neutral-800 prose-pre:bg-neutral-900 prose-p:">
+        <article className="prose xl:prose-lg prose-blue max-w-none pt-4 dark:prose-invert prose-a:underline prose-pre:max-w-xs prose-pre:sm:max-w-none dark:prose-a:text-yellow-500 prose-pre:dark:bg-neutral-800 prose-pre:bg-neutral-900">
           <MDXRemote {...mdxSource} components={components} lazy />
         </article>
         <div className="flex items-center w-full gap-2 font-semibold pt-4">
           <Link href="/" className="underline underline-offset-2 ">
-            Homepage
+            Home
           </Link>
           <span>/</span>
           <Link href="/blog" className="underline underline-offset-2 ">

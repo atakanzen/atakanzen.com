@@ -14,11 +14,11 @@ export type Post = {
   path: String;
 };
 
-type Props = {
+type BlogProps = {
   posts: Post[];
 };
 
-const Posts = ({ posts }: Props) => {
+const Posts = ({ posts }: BlogProps) => {
   return (
     <>
       <NextSeo
@@ -44,10 +44,10 @@ const Posts = ({ posts }: Props) => {
           },
         ]}
       ></NextSeo>
-      <div className="flex flex-col items-start p-4 divide-y-2 gap-4 xl:max-w-4xl mx-auto">
+      <div className="flex flex-col items-start p-4 divide-y-2 gap-4 xl:max-w-3xl mx-auto">
         <div className="flex items-center gap-2 font-semibold">
           <Link href="/" className="underline underline-offset-2">
-            Homepage
+            Home
           </Link>
           <span>/</span>
           <h1>Blog</h1>
@@ -62,7 +62,6 @@ const Posts = ({ posts }: Props) => {
                 href={`blog/${p.path}`}
                 description={p.metadata.excerpt}
                 date={new Date(p.metadata.date).toDateString()}
-                fromHomePage={false}
               />
             ))}
           </div>
@@ -72,8 +71,9 @@ const Posts = ({ posts }: Props) => {
   );
 };
 
-export const getStaticProps: GetStaticProps = async (context) => {
-  const posts = getAllPosts();
+export const getStaticProps: GetStaticProps = (context) => {
+  let posts = getAllPosts();
+
   return { props: { posts } };
 };
 
