@@ -130,13 +130,13 @@ const MyJourney = () => {
       <div className="flex flex-col items-start gap-4 divide-y-2 justify-center xl:h-full xl:max-w-4xl mx-auto">
         <div className="flex items-center justify-start gap-2 font-semibold">
           <Link href="/" className="underline underline-offset-2 font-semibold">
-            Homepage
+            Home
           </Link>
           <span>/</span>
           <h1>My Journey</h1>
         </div>
         <div className="pt-4">
-          <ol className="relative border-l border-neutral-600">
+          <ol className="relative border-l border-neutral-600 -z-50">
             {journeyPoints.map((j, i) => (
               <li key={i} className="ml-4 my-4">
                 <div className="absolute w-2 h-2 bg-neutral-600 rounded-full mt-0.5 -left-[0.275rem]"></div>

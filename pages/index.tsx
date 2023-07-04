@@ -76,7 +76,7 @@ export default function Home({ pinnedPosts }: HomeProps) {
         ]}
       ></NextSeo>
 
-      <div className="flex flex-col max-w-5xl mx-auto gap-10">
+      <div className="flex flex-col xl:max-w-5xl mx-auto gap-10">
         <div className={`xl:tracking-tight ${atkinson.className}`}>
           <h1 className="text-3xl xl:text-6xl font-bold">Atakan Zengin;</h1>
           <h2 className={`text-2xl xl:text-5xl font-semibold`}>

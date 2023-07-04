@@ -20,7 +20,7 @@ const Custom404 = () => {
         </p>
       </div>
       <Link href="/" className="font-extrabold underline">
-        Back to homepage
+        Back to home
       </Link>
     </div>
   );

@@ -44,10 +44,10 @@ const Posts = ({ posts }: BlogProps) => {
           },
         ]}
       ></NextSeo>
-      <div className="flex flex-col items-start p-4 divide-y-2 gap-4 xl:max-w-4xl mx-auto">
+      <div className="flex flex-col items-start p-4 divide-y-2 gap-4 xl:max-w-3xl mx-auto">
         <div className="flex items-center gap-2 font-semibold">
           <Link href="/" className="underline underline-offset-2">
-            Homepage
+            Home
           </Link>
           <span>/</span>
           <h1>Blog</h1>

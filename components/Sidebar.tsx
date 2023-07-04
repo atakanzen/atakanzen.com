@@ -15,91 +15,83 @@ export default function Sidebar() {
   return (
     <>
       <div
-        className={`absolute xl:hidden w-screen h-screen backdrop-blur-xl z-10 ${
+        className={`fixed left-0 right-0 h-screen xl:h-fit backdrop-blur-xl z-40 ${
           menuOpen ? "" : "-translate-y-full"
-        } transition-all duration-500 flex flex-col items-center justify-center gap-4`}
+        }  transition-all duration-500 flex flex-col gap-4`}
       >
-        <Link
-          href={"/"}
-          className="text-xl font-bold  dark:decoration-yellow-500 underline"
-          onClick={() => setMenuOpen(!menuOpen)}
-        >
-          Home
-        </Link>
-        <Link
-          href={"/blog"}
-          className="text-xl font-bold  dark:decoration-yellow-500 underline"
-          onClick={() => setMenuOpen(!menuOpen)}
-        >
-          Blog
-        </Link>
-        <Link
-          href={"/contact"}
-          className="text-xl font-bold  dark:decoration-yellow-500 underline"
-          onClick={() => setMenuOpen(!menuOpen)}
-        >
-          Contact
-        </Link>
-        <Link
-          href={"/my-journey"}
-          className="text-xl font-bold dark:decoration-yellow-500 underline"
-          onClick={() => setMenuOpen(!menuOpen)}
-        >
-          Journey
-        </Link>
-      </div>
-      <aside className="relative p-4 xl:h-screen z-50">
-        <div className="flex flex-row-reverse xl:flex-col h-full items-center justify-between xl:justify-between gap-2">
-          {/* For laptops and bigger sizes */}
-          <div className="hidden xl:flex xs:flex-col gap-2 items-center">
+        <div className="flex flex-col xl:flex-row xl:divide-x-2 xl:divide-y-0 divide-y-2 gap-4 items-center h-full p-10 justify-center">
+          <div className="flex flex-col xl:flex-row gap-4 items-center">
             <Link
               href={"/"}
-              className="xs:text-xl font-semibold  dark:decoration-yellow-500 underline"
+              className="text-xl font-bold  dark:decoration-yellow-500 underline"
+              onClick={() => setMenuOpen(!menuOpen)}
             >
               Home
             </Link>
             <Link
               href={"/blog"}
-              className="xs:text-xl font-semibold  dark:decoration-yellow-500 underline"
+              className="text-xl font-bold  dark:decoration-yellow-500 underline"
+              onClick={() => setMenuOpen(!menuOpen)}
             >
               Blog
             </Link>
             <Link
-              href={"/contact"}
-              className="xs:text-xl font-semibold  dark:decoration-yellow-500 underline"
-            >
-              Contact
-            </Link>
-            <Link
               href={"/my-journey"}
-              className="xs:text-xl font-semibold dark:decoration-yellow-500 underline"
+              className="text-xl font-bold dark:decoration-yellow-500 underline"
+              onClick={() => setMenuOpen(!menuOpen)}
             >
               Journey
             </Link>
           </div>
-
-          {/* For mobile */}
-          <div className="xl:hidden">
-            <div
-              onClick={() => setMenuOpen(!menuOpen)}
-              className="flex flex-col items-center justify-center gap-2 p-4"
+          <div className="xl:pl-4 xl:pt-0 pt-4 flex flex-col xl:flex-row items-center justify-center gap-2 text-lg ">
+            <a
+              href="mailto:atakanzzengin@gmail.com"
+              className="underline dark:decoration-yellow-500"
             >
-              <div
-                className={`w-8 rounded bg-blue-500 dark:bg-yellow-500 h-0.5 transition-all ease-in-out duration-500 ${
-                  menuOpen && "rotate-45 translate-y-2"
-                }`}
-              ></div>
-              <div
-                className={`w-8 rounded bg-blue-500 dark:bg-yellow-500 h-0.5 transition-all ease-in-out duration-500 ${
-                  menuOpen && "opacity-0"
-                }`}
-              ></div>
-              <div
-                className={`w-8 rounded bg-blue-500 dark:bg-yellow-500 h-0.5 transition-all ease-in-out duration-500 ${
-                  menuOpen && "-rotate-45 -translate-y-3"
-                }`}
-              ></div>
-            </div>
+              Email
+            </a>
+            <a
+              href="https://github.com/atakanzen"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline dark:decoration-yellow-500"
+            >
+              GitHub
+            </a>
+            <a
+              href="https://linkedin.com/in/atakanzen"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline dark:decoration-yellow-500"
+            >
+              LinkedIn
+            </a>
+          </div>
+        </div>
+      </div>
+      <aside className="relative p-4 xl:h-screen z-50">
+        <div className="flex flex-row-reverse xl:flex-col h-full items-center justify-between xl:justify-between gap-2">
+          {/* For mobile */}
+
+          <div
+            onClick={() => setMenuOpen(!menuOpen)}
+            className="flex flex-col items-center justify-center gap-2 p-4"
+          >
+            <div
+              className={`w-8 rounded bg-blue-500 dark:bg-yellow-500 h-0.5 transition-all ease-in-out duration-500 ${
+                menuOpen && "rotate-45 translate-y-2"
+              }`}
+            ></div>
+            <div
+              className={`w-8 rounded bg-blue-500 dark:bg-yellow-500 h-0.5 transition-all ease-in-out duration-500 ${
+                menuOpen && "opacity-0"
+              }`}
+            ></div>
+            <div
+              className={`w-8 rounded bg-blue-500 dark:bg-yellow-500 h-0.5 transition-all ease-in-out duration-500 ${
+                menuOpen && "-rotate-45 -translate-y-3"
+              }`}
+            ></div>
           </div>
 
           <div className="flex xl:flex-col xs:gap-2">
@@ -129,7 +121,7 @@ export default function Sidebar() {
             </div>
             {/* Title */}
             <div
-              className={`flex flex-col items-center justify-center xs:divide-x-2 text-center ml-4 xl:ml-0 xl:flex-col xl:mb-4 xl:divide-x-0 ${atkinson.className}`}
+              className={`flex flex-col sm:flex-row xl:flex-col  items-center justify-center text-center ml-4 xl:ml-0 xl:mb-4 xl:divide-x-0 ${atkinson.className}`}
             >
               <Link
                 className="text-base xs:text-xl text-blue-500 dark:text-yellow-500 xl:text-2xl 2xl:text-3xl font-bold pl-1"
