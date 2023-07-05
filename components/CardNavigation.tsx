@@ -45,7 +45,7 @@ const CardNavigation = ({
       {description ? (
         <p className="text-sm xs:text-base">{description}</p>
       ) : null}
-      {date ? <p className="text-sm">{date}</p> : null}
+      {date ? <time className="text-sm">{date}</time> : null}
     </Link>
   ) : (
     <a

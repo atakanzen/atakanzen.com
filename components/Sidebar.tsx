@@ -1,8 +1,7 @@
-import dynamic from "next/dynamic";
 import { Atkinson_Hyperlegible } from "next/font/google";
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const atkinson = Atkinson_Hyperlegible({
   weight: ["400", "700"],
@@ -11,6 +10,25 @@ const atkinson = Atkinson_Hyperlegible({
 
 export default function Sidebar() {
   const [menuOpen, setMenuOpen] = useState<boolean>(false);
+  const navRef = useRef(null);
+
+  var useOutsideClick = (ref: any) => {
+    useEffect(() => {
+      var handleOutsideClick = (event: any) => {
+        if (ref.current && !ref.current.contains(event.target)) {
+          setMenuOpen(false);
+        }
+      };
+
+      document.addEventListener("click", handleOutsideClick);
+
+      return () => {
+        document.removeEventListener("click", handleOutsideClick);
+      };
+    }, [ref]);
+  };
+
+  useOutsideClick(navRef);
 
   return (
     <>
@@ -19,7 +37,7 @@ export default function Sidebar() {
           menuOpen ? "" : "-translate-y-full"
         }  transition-all duration-500 flex flex-col gap-4`}
       >
-        <div className="flex flex-col xl:flex-row xl:divide-x-2 xl:divide-y-0 divide-y-2 gap-4 items-center h-full p-10 justify-center">
+        <div className="flex flex-col xl:flex-row xl:divide-x-2 xl:divide-y-0 divide-y-2 divide-neutral-600 dark:divide-neutral-300 gap-4 items-center h-full p-10 justify-center">
           <div className="flex flex-col xl:flex-row gap-4 items-center">
             <Link
               href={"/"}
@@ -75,7 +93,8 @@ export default function Sidebar() {
 
           <div
             onClick={() => setMenuOpen(!menuOpen)}
-            className="flex flex-col items-center justify-center gap-2 p-4"
+            ref={navRef}
+            className="flex flex-col items-center justify-center gap-2 p-4 lg:cursor-pointer"
           >
             <div
               className={`w-8 rounded bg-blue-500 dark:bg-yellow-500 h-0.5 transition-all ease-in-out duration-500 ${
