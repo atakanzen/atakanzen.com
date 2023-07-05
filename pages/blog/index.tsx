@@ -1,10 +1,7 @@
-import { POST_PATHS, getAllPosts, postFilePaths } from "@/lib/mdx";
+import { getAllPosts } from "@/lib/mdx";
 import { GetStaticProps } from "next";
-import fs from "fs";
 import Link from "next/link";
-import path from "path";
 
-import matter from "gray-matter";
 import { NextSeo } from "next-seo";
 import { getOpenGraphImage } from "@/lib/opengraph";
 import CardNavigation from "@/components/CardNavigation";
