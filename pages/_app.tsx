@@ -1,30 +1,16 @@
-import Layout from "@/components/Layout";
 import "@/styles/globals.css";
 import type { AppProps } from "next/app";
-import Script from "next/script";
+import { IBM_Plex_Mono } from "next/font/google";
 
-const gtagId = process.env.NEXT_PUBLIC_GTAG_ID;
+const ibmPlexMono = IBM_Plex_Mono({
+  weight: ["400", "700"],
+  subsets: ["latin"],
+});
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <>
-      {/* Google Tag */}
-      <Script
-        src={`https://www.googletagmanager.com/gtag/js?id=${gtagId}`}
-        strategy="afterInteractive"
-      />
-      <Script id="google-analytics" strategy="afterInteractive">
-        {`
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-
-          gtag('config', '${gtagId}');
-      `}
-      </Script>
-      <Layout>
-        <Component {...pageProps} />
-      </Layout>
-    </>
+    <div className={`${ibmPlexMono.className} w-screen h-screen`}>
+      <Component {...pageProps} />
+    </div>
   );
 }
