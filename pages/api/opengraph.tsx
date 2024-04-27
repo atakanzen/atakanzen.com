@@ -6,14 +6,8 @@ export const config = {
   runtime: "edge",
 };
 
-const font = fetch(
-  new URL("../../public/fonts/Inter-Regular.ttf", import.meta.url)
-).then((res) => res.arrayBuffer());
-
 const handler = async (req: NextRequest) => {
   try {
-    const fontData = await font;
-
     const { searchParams } = new URL(req.url!);
 
     const title = searchParams.has("title")
@@ -24,7 +18,7 @@ const handler = async (req: NextRequest) => {
       (
         <div
           style={{
-            fontFamily: "Inter",
+            fontFamily: "monospace",
             fontWeight: 900,
           }}
           tw="flex items-center justify-center bg-white w-full h-full"
@@ -38,7 +32,6 @@ const handler = async (req: NextRequest) => {
       {
         width: 1200,
         height: 600,
-        fonts: [{ name: "Inter", data: fontData, weight: 900 }],
       }
     );
   } catch (error: any) {
