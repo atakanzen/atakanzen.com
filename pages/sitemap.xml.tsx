@@ -1,6 +1,6 @@
 import { getAllPosts } from "@/lib/mdx";
 import { GetServerSideProps } from "next";
-import { Post } from "./blog";
+import { Post } from "./writing";
 
 function generateSiteMap(posts: Post[]) {
   return `<?xml version="1.0" encoding="UTF-8"?>
@@ -15,13 +15,13 @@ function generateSiteMap(posts: Post[]) {
        <loc>https://atakanzen.com/my-journey</loc>
      </url>
      <url>
-       <loc>https://atakanzen.com/blog</loc>
+       <loc>https://atakanzen.com/writing</loc>
      </url>
      ${posts
        .map((p) => {
          return `
        <url>
-           <loc>https://atakanzen.com/blog/${p.path}</loc>
+           <loc>https://atakanzen.com/writing/${p.path}</loc>
        </url>
      `;
        })
