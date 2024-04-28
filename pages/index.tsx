@@ -1,3 +1,4 @@
+import GlitchText from "@/components/GlitchText";
 import { getOpenGraphImage } from "@/lib/opengraph";
 import { NextSeo } from "next-seo";
 import Link from "next/link";
@@ -31,7 +32,7 @@ export default function Home() {
         ]}
       ></NextSeo>
 
-      <div className="flex flex-col h-full w-full items-center justify-center gap-y-2">
+      <div className="flex flex-col h-full w-full items-center justify-center gap-y-2 ">
         <Link
           title="writing"
           className="absolute top-2 underline"
@@ -39,8 +40,11 @@ export default function Home() {
         >
           writing
         </Link>
-        <h1 className="text-6xl tracking-tighter">atakan zengin</h1>
-        <h2 className="text-3x text-blue-500">a generalist.</h2>
+        <h1 className="text-xl sm:text-3xl md:text-6xl tracking-tighter">
+          atakan zengin
+        </h1>
+        {/* <h2 className="text-xl text-blue-500">a generalist.</h2> */}
+        <GlitchText />
       </div>
     </>
   );

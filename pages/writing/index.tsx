@@ -57,7 +57,7 @@ const Posts = ({ posts }: BlogProps) => {
                 className="flex w-full items-center justify-between hover:pl-4 focus:pl-4"
               >
                 <span>{p.metadata.title}</span>
-                <span className="text-blue-500">
+                <span className="text-lime-500">
                   {new Date(p.metadata.date).toISOString().substring(0, 10)}
                 </span>
               </Link>
