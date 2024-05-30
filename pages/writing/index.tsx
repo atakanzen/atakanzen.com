@@ -4,6 +4,7 @@ import Link from "next/link";
 
 import { NextSeo } from "next-seo";
 import { getOpenGraphImage } from "@/lib/opengraph";
+import Navigation from "@/components/Navigation";
 
 export type Post = {
   metadata: Record<string, any>;
@@ -40,24 +41,20 @@ const Posts = ({ posts }: BlogProps) => {
           },
         ]}
       ></NextSeo>
-      <div className="flex flex-col items-start p-4 divide-y-2 gap-4 xl:max-w-3xl mx-auto">
-        <div className="flex items-center gap-2 font-semibold">
-          <Link href="/" className="underline underline-offset-2">
-            home
-          </Link>
-          <span>/</span>
-          <h1>writing</h1>
-        </div>
-        <div className="w-full pt-4">
+      <div className="flex flex-col items-start gap-4">
+        <Navigation />
+        <div className="w-full">
           <div className="flex flex-col items-start gap-y-2 w-full">
             {posts.map((p, i) => (
               <Link
                 key={i}
                 href={`writing/${p.path}`}
-                className="flex w-full items-center justify-between hover:pl-4 focus:pl-4"
+                className="flex w-full items-center justify-between hover:pl-4 focus:pl-4 transition-all duration-150"
               >
-                <span>{p.metadata.title}</span>
-                <span className="text-lime-500">
+                <span className="hover:underline text-base md:text-xl">
+                  {p.metadata.title}
+                </span>
+                <span className="text-transparent text-start text-xs xs:text-base md:text-xl inline-block bg-gradient-to-r from-blue-300 via-blue-500 to-blue-600 bg-clip-text font-bold">
                   {new Date(p.metadata.date).toISOString().substring(0, 10)}
                 </span>
               </Link>

@@ -3,6 +3,11 @@ import { getOpenGraphImage } from "@/lib/opengraph";
 import { NextSeo } from "next-seo";
 import Link from "next/link";
 
+import { IBM_Plex_Mono } from "next/font/google";
+import Navigation from "@/components/Navigation";
+
+const ibmPlexMono = IBM_Plex_Mono({ weight: "500", subsets: ["latin"] });
+
 export default function Home() {
   return (
     <>
@@ -31,20 +36,14 @@ export default function Home() {
           },
         ]}
       ></NextSeo>
-
-      <div className="flex flex-col h-full w-full items-center justify-center gap-y-2 ">
-        <Link
-          title="writing"
-          className="absolute top-2 underline"
-          href="/writing"
-        >
-          writing
-        </Link>
-        <h1 className="text-xl sm:text-3xl md:text-6xl tracking-tighter">
-          atakan zengin
-        </h1>
-        {/* <h2 className="text-xl text-blue-500">a generalist.</h2> */}
-        <GlitchText />
+      <Navigation />
+      <div className="flex flex-col mt-5 items-center justify-center gap-y-5">
+        <div className={`${ibmPlexMono.className} flex flex-col items-center`}>
+          <h1 className={`text-xl sm:text-3xl md:text-6xl tracking-tighter`}>
+            atakan zengin
+          </h1>
+          <GlitchText />
+        </div>
       </div>
     </>
   );

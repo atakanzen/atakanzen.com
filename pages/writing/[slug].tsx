@@ -5,21 +5,16 @@ import path from "path";
 import React from "react";
 import { serialize } from "next-mdx-remote/serialize";
 import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote";
-import Link from "next/link";
 import { NextSeo } from "next-seo";
 import { getOpenGraphImage } from "@/lib/opengraph";
-import { IBM_Plex_Mono } from "next/font/google";
-
-const ibmPlexMono = IBM_Plex_Mono({
-  weight: ["400", "700"],
-  subsets: ["latin"],
-});
+import Navigation from "@/components/Navigation";
 
 type Props = {
   mdxSource: MDXRemoteSerializeResult<
     Record<string, unknown>,
     Record<string, unknown>
   >;
+  readableDate: string;
 };
 
 // Injecting custom components for MDX Render Engine
@@ -51,6 +46,7 @@ const components = {
 
 const PostPage = ({
   mdxSource,
+  readableDate,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
     <>
@@ -77,32 +73,15 @@ const PostPage = ({
           },
         ]}
       ></NextSeo>
-      <div className="flex flex-col items- justify-center px-4 py-8 divide-y-2 gap-4 xs:max-w-xs sm:max-w-xl md:max-w-2xl mx-auto">
-        <div className="flex items-center gap-2 font-semibold">
-          <Link href="/" className="underline underline-offset-2">
-            home
-          </Link>
-          <span>/</span>
-          <Link href="/writing" className="underline underline-offset-2">
-            writing
-          </Link>
-          <span>/</span>
-          <span>{mdxSource.frontmatter.slug}</span>
-        </div>
-        <article className="prose xl:prose-lg prose-blue  pt-4 dark:prose-invert prose-a:underline prose-pre:xs:max-w-sm prose-pre:sm:max-w-md prose-pre:md:max-w-none  prose-a:text-lime-500 prose-pre:dark:bg-neutral-800 prose-pre:bg-neutral-900">
+      <Navigation
+        dynamicLocationTitle={`${new Date(mdxSource.frontmatter.date)
+          .toISOString()
+          .substring(0, 10)}`}
+      />
+      <div className="flex flex-col items- justify-center  py-8 divide-y-2 gap-4 xs:max-w-xs sm:max-w-xl md:max-w-2xl mx-auto">
+        <article className="prose xl:prose-2xl prose-blue  pt-4 dark:prose-invert prose-a:underline prose-pre:xs:max-w-sm prose-pre:sm:max-w-md prose-pre:md:max-w-none  prose-a:text-blue-500 prose-pre:dark:bg-neutral-800 prose-pre:bg-neutral-900">
           <MDXRemote {...mdxSource} components={components} lazy />
         </article>
-        <div className="flex items-center w-full gap-2 font-semibold pt-4">
-          <Link href="/" className="underline underline-offset-2 ">
-            home
-          </Link>
-          <span>/</span>
-          <Link href="/writing" className="underline underline-offset-2 ">
-            writing
-          </Link>
-          <span>/</span>
-          <span>{mdxSource.frontmatter.slug}</span>
-        </div>
       </div>
     </>
   );
