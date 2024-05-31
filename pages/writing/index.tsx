@@ -51,7 +51,7 @@ const Posts = ({ posts }: BlogProps) => {
                 href={`writing/${p.path}`}
                 className="flex w-full items-center justify-between hover:pl-4 focus:pl-4 transition-all duration-150"
               >
-                <span className="hover:underline text-base md:text-xl">
+                <span className="hover:underline text-sm xs:text-base md:text-xl">
                   {p.metadata.title}
                 </span>
                 <span className="text-transparent text-start text-xs xs:text-base md:text-xl inline-block bg-gradient-to-r from-blue-300 via-blue-500 to-blue-600 bg-clip-text font-bold">

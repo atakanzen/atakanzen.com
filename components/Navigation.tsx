@@ -16,13 +16,13 @@ const links: Link[] = [
     href: "/writing",
     title: "writing",
   },
+  {
+    href: "/3D",
+    title: "3D",
+  },
 ];
 
-type NavigationProps = {
-  dynamicLocationTitle?: string;
-};
-
-const Navigation = ({ dynamicLocationTitle }: NavigationProps) => {
+const Navigation = () => {
   const pathname = usePathname();
 
   return (
@@ -41,11 +41,6 @@ const Navigation = ({ dynamicLocationTitle }: NavigationProps) => {
             <span>/</span>
           </React.Fragment>
         ))}
-        {dynamicLocationTitle && (
-          <span className="text-blue-500 underline">
-            {dynamicLocationTitle}
-          </span>
-        )}
       </div>
     </nav>
   );

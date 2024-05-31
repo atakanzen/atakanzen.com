@@ -73,11 +73,7 @@ const PostPage = ({
           },
         ]}
       ></NextSeo>
-      <Navigation
-        dynamicLocationTitle={`${new Date(mdxSource.frontmatter.date)
-          .toISOString()
-          .substring(0, 10)}`}
-      />
+      <Navigation />
       <div className="flex flex-col items- justify-center  py-8 divide-y-2 gap-4 xs:max-w-xs sm:max-w-xl md:max-w-2xl mx-auto">
         <article className="prose xl:prose-2xl prose-blue  pt-4 dark:prose-invert prose-a:underline prose-pre:xs:max-w-sm prose-pre:sm:max-w-md prose-pre:md:max-w-none  prose-a:text-blue-500 prose-pre:dark:bg-neutral-800 prose-pre:bg-neutral-900">
           <MDXRemote {...mdxSource} components={components} lazy />
