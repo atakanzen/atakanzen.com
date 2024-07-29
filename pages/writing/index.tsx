@@ -21,13 +21,13 @@ const Posts = ({ posts }: BlogProps) => {
       <NextSeo
         title="Atakan Zengin - Blog"
         description="This is my blog which you can find my posts and notes about the things I'm working with or find interesting."
-        canonical="https://atakanzen.com/posts"
+        canonical="https://atakanzen.com/writing"
         twitter={{
           handle: "@atakanzen_",
           cardType: "summary_large_image",
         }}
         openGraph={{
-          url: "https://atakanzen.com/blog",
+          url: "https://atakanzen.com/writing",
           title: "Atakan Zengin's Blog",
           site_name: "Blog - Atakan Zengin",
           description:
@@ -41,25 +41,19 @@ const Posts = ({ posts }: BlogProps) => {
           },
         ]}
       ></NextSeo>
-      <div className="flex flex-col items-start gap-4">
-        <Navigation />
-        <div className="w-full">
-          <div className="flex flex-col items-start gap-y-2 w-full">
-            {posts.map((p, i) => (
-              <Link
-                key={i}
-                href={`writing/${p.path}`}
-                className="flex w-full items-center justify-between hover:pl-4 focus:pl-4 transition-all duration-150"
-              >
-                <span className="hover:underline text-sm xs:text-base md:text-xl">
-                  {p.metadata.title}
-                </span>
-                <span className="text-transparent text-start text-xs xs:text-base md:text-xl inline-block bg-gradient-to-r from-blue-300 via-blue-500 to-blue-600 bg-clip-text font-bold">
-                  {new Date(p.metadata.date).toISOString().substring(0, 10)}
-                </span>
-              </Link>
-            ))}
-          </div>
+      <div className="w-full">
+        <div className="flex flex-col items-start gap-y-2 w-full">
+          {posts.map((p, i) => (
+            <Link
+              key={i}
+              href={`writing/${p.path}`}
+              className="flex w-full items-center justify-between hover:pl-4 focus:pl-4 transition-all duration-150"
+            >
+              <span className="underline text-base md:text-2xl">
+                {p.metadata.title}
+              </span>
+            </Link>
+          ))}
         </div>
       </div>
     </>

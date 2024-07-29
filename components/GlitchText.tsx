@@ -58,7 +58,7 @@ const GlitchText = () => {
       onMouseOver={() => handleHoverOnGlitch()}
       onClick={() => handleHoverOnGlitch()}
       id="glitch-text"
-      className={`lg:hover:text-blue-500 sm:text-md lg:hover:cursor-help duration-500 select-none`}
+      className={`lg:hover:text-blue-500 sm:text-2xl lg:hover:cursor-help duration-500 select-none`}
     >
       {glitchText}
     </div>

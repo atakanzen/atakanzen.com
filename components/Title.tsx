@@ -8,7 +8,7 @@ const Title = () => {
     <div
       className={`${ibmPlexMono.className} flex flex-col items-center select-none`}
     >
-      <h1 className={`text-3xl md:text-6xl tracking-tighter`}>atakan zengin</h1>
+      <h1 className={`text-3xl md:text-8xl tracking-tighter`}>atakan zengin</h1>
       <GlitchText />
     </div>
   );

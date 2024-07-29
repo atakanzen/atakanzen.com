@@ -3,7 +3,6 @@ import { NextSeo } from "next-seo";
 
 import Navigation from "@/components/Navigation";
 import Title from "@/components/Title";
-import Link from "next/link";
 
 export default function Home() {
   return (
@@ -33,10 +32,9 @@ export default function Home() {
           },
         ]}
       ></NextSeo>
-      <Navigation />
       <div className="flex h-4/5 my-5 flex-col mt-5 items-center justify-center gap-y-5">
         <Title />
-        <div className="flex lg:text-xl items-center gap-x-4 text-blue-400">
+        <div className="flex text-base lg:text-2xl items-center gap-x-4 text-blue-400">
           <a
             className="underline"
             rel="noreferrer"

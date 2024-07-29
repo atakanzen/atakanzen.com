@@ -7,7 +7,6 @@ import { serialize } from "next-mdx-remote/serialize";
 import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote";
 import { NextSeo } from "next-seo";
 import { getOpenGraphImage } from "@/lib/opengraph";
-import Navigation from "@/components/Navigation";
 
 type Props = {
   mdxSource: MDXRemoteSerializeResult<
@@ -73,9 +72,11 @@ const PostPage = ({
           },
         ]}
       ></NextSeo>
-      <Navigation />
-      <div className="flex flex-col items- justify-center  py-8 divide-y-2 gap-4 xs:max-w-xs sm:max-w-xl md:max-w-2xl mx-auto">
-        <article className="prose xl:prose-2xl prose-blue  pt-4 dark:prose-invert prose-a:underline prose-pre:xs:max-w-sm prose-pre:sm:max-w-md prose-pre:md:max-w-none  prose-a:text-blue-500 prose-pre:dark:bg-neutral-800 prose-pre:bg-neutral-900">
+      <div className="flex flex-col justify-center py-8 gap-4 xs:max-w-xs sm:max-w-xl md:max-w-2xl xl:max-w-full xl:items-center mx-auto">
+        <span className="text-blue-500 text-base md:text-xl font-bold">
+          {mdxSource.frontmatter.date}
+        </span>
+        <article className="prose xl:prose-2xl prose-blue pt-4 dark:prose-invert prose-a:underline prose-pre:xs:max-w-sm prose-pre:sm:max-w-md prose-pre:md:max-w-none prose-a:text-blue-500 prose-pre:dark:bg-neutral-800 prose-pre:bg-neutral-900 prose-pre:text-pink-500">
           <MDXRemote {...mdxSource} components={components} lazy />
         </article>
       </div>
