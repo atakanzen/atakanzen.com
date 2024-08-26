@@ -1,20 +1,15 @@
 import { POST_PATHS, getPostSlug, postFilePaths } from "@/lib/mdx";
 import fs from "fs";
-import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from "next";
+import { GetStaticPaths, GetStaticProps } from "next";
 import path from "path";
 import React from "react";
 import { serialize } from "next-mdx-remote/serialize";
 import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote";
 import { NextSeo } from "next-seo";
 import { getOpenGraphImage } from "@/lib/opengraph";
-
-type Props = {
-  mdxSource: MDXRemoteSerializeResult<
-    Record<string, unknown>,
-    Record<string, unknown>
-  >;
-  readableDate: string;
-};
+import Image, { ImageProps } from "next/image";
+import rehypeHighlight from "rehype-highlight";
+import "highlight.js/styles/github-dark.css";
 
 // Injecting custom components for MDX Render Engine
 const components = {
@@ -39,25 +34,35 @@ const components = {
       </span>
     </>
   ),
-  // p: (props: any) => <p {...props} className={`${inter.className}`}></p>,
-  // li: (props: any) => <li {...props} className={`${inter.className}`}></li>,
+  img: (props: any) => (
+    <Image
+      className="w-full h-auto"
+      width={0}
+      height={0}
+      sizes="100vw"
+      {...(props as ImageProps)}
+    />
+  ),
 };
 
-const PostPage = ({
-  mdxSource,
-  readableDate,
-}: InferGetStaticPropsType<typeof getStaticProps>) => {
+interface Props {
+  mdxSource: MDXRemoteSerializeResult;
+}
+
+const PostPage = ({ mdxSource }: Props) => {
   return (
     <>
       <NextSeo
-        title={mdxSource.frontmatter.title}
+        title={mdxSource.frontmatter.title as string}
         titleTemplate="%s - Atakan Zengin - Blog"
-        description={mdxSource.frontmatter.excerpt}
+        description={mdxSource.frontmatter.excerpt as string}
         openGraph={{
           type: "article",
-          images: [getOpenGraphImage(mdxSource.frontmatter.title)],
+          images: [getOpenGraphImage(mdxSource.frontmatter.title as string)],
           article: {
-            publishedTime: new Date(mdxSource.frontmatter.date).toISOString(),
+            publishedTime: new Date(
+              mdxSource.frontmatter.date as string
+            ).toISOString(),
           },
         }}
         twitter={{
@@ -68,15 +73,17 @@ const PostPage = ({
         additionalMetaTags={[
           {
             name: "date",
-            content: new Date(mdxSource.frontmatter.date).toDateString(),
+            content: new Date(
+              mdxSource.frontmatter.date as string
+            ).toDateString(),
           },
         ]}
       ></NextSeo>
       <div className="flex flex-col justify-center py-8 gap-4 xs:max-w-xs sm:max-w-xl md:max-w-2xl xl:max-w-full xl:items-center mx-auto">
         <span className="text-blue-500 text-base md:text-xl font-bold">
-          {mdxSource.frontmatter.date}
+          {mdxSource.frontmatter.date as string}
         </span>
-        <article className="prose xl:prose-2xl prose-blue pt-4 dark:prose-invert prose-a:underline prose-pre:xs:max-w-sm prose-pre:sm:max-w-md prose-pre:md:max-w-none prose-a:text-blue-500 prose-pre:dark:bg-neutral-800 prose-pre:bg-neutral-900 prose-pre:text-pink-500">
+        <article className="prose xl:prose-xl 2xl:prose-2xl prose-blue pt-4 dark:prose-invert prose-a:underline prose-pre:xs:max-w-sm prose-pre:sm:max-w-md prose-pre:md:max-w-none prose-a:text-blue-500 prose-pre:bg-[#0D1117]">
           <MDXRemote {...mdxSource} components={components} lazy />
         </article>
       </div>
@@ -84,11 +91,18 @@ const PostPage = ({
   );
 };
 
-export const getStaticProps: GetStaticProps = async ({ params }) => {
+export const getStaticProps: GetStaticProps<{
+  mdxSource: MDXRemoteSerializeResult;
+}> = async ({ params }) => {
   const postFilePath = path.join(POST_PATHS, `${params?.slug}.mdx`);
   const source = fs.readFileSync(postFilePath);
 
-  const mdxSource = await serialize(source, { parseFrontmatter: true });
+  const mdxSource = await serialize(source, {
+    parseFrontmatter: true,
+    mdxOptions: {
+      rehypePlugins: [rehypeHighlight],
+    },
+  });
 
   return {
     props: {
