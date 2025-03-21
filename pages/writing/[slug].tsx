@@ -83,7 +83,7 @@ const PostPage = ({ mdxSource }: Props) => {
         <span className="text-blue-500 text-base md:text-xl font-bold">
           {mdxSource.frontmatter.date as string}
         </span>
-        <article className="prose xl:prose-xl 2xl:prose-2xl prose-blue pt-4 dark:prose-invert prose-a:underline prose-pre:xs:max-w-sm prose-pre:sm:max-w-md prose-pre:md:max-w-none prose-a:text-blue-500 prose-pre:bg-[#0D1117]">
+        <article className="prose xl:prose-xl 2xl:prose-2xl prose-blue pt-4 dark:prose-invert prose-a:underline xs:prose-pre:max-w-sm sm:prose-pre:max-w-md md:prose-pre:max-w-none prose-a:text-blue-500 prose-pre:bg-[#0D1117]">
           <MDXRemote {...mdxSource} components={components} lazy />
         </article>
       </div>
