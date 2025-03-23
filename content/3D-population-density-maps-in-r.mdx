@@ -8,10 +8,6 @@ published: true
 pinned: true
 ---
 
-import Image from "next/image"
-import finalPlot from "/public/images/3d-pop-vis/final_plot.png"
-
-
 # 3D Population Density Maps in R: Visualizing Data with Raytracing
 
 ![final_plot.png](/images/3d-pop-vis/final_plot.png)
@@ -37,7 +33,8 @@ To read the data, you’ll need to download the corresponding `gpkg` file from [
 As additional information, Kontur prepares its population data using H3 hexagons with population counts at a 400m resolution. As they explain in more detail [in this blog post](https://www.kontur.io/blog/why-we-use-h3/), the key reason for using hexagons is that they have equal distances between the center of a hexagon and the centers of neighboring cells. This property greatly simplifies analysis and smoothing over gradients.
 
 <aside>
-💡 You can find even more information about the Kontur Population Dataset itself [in this article](https://www.kontur.io/portfolio/population-dataset/).
+  💡 You can find even more information about the Kontur Population Dataset
+  itself [in this article](https://www.kontur.io/portfolio/population-dataset/).
 </aside>
 
 ## Plotting the data
@@ -85,7 +82,7 @@ poland_rast <- st_rasterize(poland,
                             nx = floor(size * w_ratio),
                             ny = floor(size * h_ratio))
 
-# Creating the matrix using the population attribute of the raster, 
+# Creating the matrix using the population attribute of the raster,
 # which was transferred from the original GPKG dataset
 mat <- matrix(poland_rast$population,
               nrow = floor(size * w_ratio),
@@ -132,16 +129,16 @@ In this code:
 - The `bias` argument, a positive number, defines the spacing between colors at the high end of the palette.
 - The `colorRampPalette` returns a function, which takes an integer argument, the required number of colors to generate. Here we give 256.
 
-Now that we have our colors ready, we can use them in our 3D render by passing the `texture` variable as an argument. 
+Now that we have our colors ready, we can use them in our 3D render by passing the `texture` variable as an argument.
 
 Now it’s time for the 3D plot. However, before we put our computer through the high-cost processing required for rendering, we need to find the best camera angle, zoom level, background color, and other aspects for our final render. To do this, we’ll use the `plot_3d` function, which doesn’t cast light rays or form shadows within the plot. Instead, it provides us with an interactive window where we can rotate and move around the plot. This allows us to experiment with different angles and settings quickly and conveniently, without putting too much strain on the CPU.
 
 ```r
-mat |> 
-  height_shade(texture = texture) |> 
-  plot_3d(heightmap = mat, 
+mat |>
+  height_shade(texture = texture) |>
+  plot_3d(heightmap = mat,
           windowsize = 800,
-          zscale = 100 / 3, 
+          zscale = 100 / 3,
           solid = FALSE,
           shadowdepth = 0,
           theta = 0,
@@ -162,9 +159,9 @@ Once we find the most aesthetically pleasing angles and rotations for our camera
 render_camera(theta = -2, phi = 25, zoom = .63)
 ```
 
-The values you choose here are entirely a matter of personal preference. They may vary based on your perspective or even the country your dataset represents, as the map being plotted will change accordingly. 
+The values you choose here are entirely a matter of personal preference. They may vary based on your perspective or even the country your dataset represents, as the map being plotted will change accordingly.
 
-After finalizing our camera rotation and zoom, it’s time to bring out the big guns in our code to complete the final output. 
+After finalizing our camera rotation and zoom, it’s time to bring out the big guns in our code to complete the final output.
 
 The star of the show here is the `render_highquality` function from the `rayshader` package. It accepts several arguments, including:
 
@@ -191,12 +188,12 @@ outfile <- "images/final_plot.png"
   # Assign start time to a variable.
   start_time <- Sys.time()
   cat(crayon::cyan(start_time), "\n")
-  
+
   # Create the PNG if it doesn't already exist.
   if (!file.exists(outfile)) {
     png::writePNG(matrix(1), target = outfile)
   }
-  
+
   # Start rendering in high quality.
   render_highquality(
     filename = outfile,
@@ -209,13 +206,13 @@ outfile <- "images/final_plot.png"
     width = 6000,
     height = 6000
   )
-  
+
   # Assign render end time to a variable.
   end_time <- Sys.time()
-  
+
   # Calculate the elapsed time for render.
   diff <- end_time - start_time
-  
+
   # Print the elapsed time for render.
   cat(crayon::cyan(diff), "\n")
 }
@@ -249,26 +246,26 @@ annot <- glue("Population estimates are bucketed into 400 meter ",
               "hexagons.") |>
   str_wrap(45)
 
-img |> 
+img |>
   image_crop(gravity = "center",
-             geometry = "6000x3500+0-150") |> 
+             geometry = "6000x3500+0-150") |>
   image_annotate("Poland Population Density",
                  gravity = "northwest",
                  location = "+200+100",
                  color = text_color,
                  size = 200,
-                 weight = 700) |> 
+                 weight = 700) |>
   image_annotate(annot,
                  gravity = "northeast",
                  location = "+200+100",
                  color = text_color,
-                 size = 75) |> 
+                 size = 75) |>
   image_annotate(glue("Graphic by Atakan Zengin (atakanzen.com) | ",
                       "Data: Kontur Population (Released 01/11/2023)"),
                  gravity = "south",
                  location = "+0+100",
                  color = alpha(text_color, .5),
-                 size = 70) |> 
+                 size = 70) |>
   image_write("images/titled_final_plot.png")
 ```
 

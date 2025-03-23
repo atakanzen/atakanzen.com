@@ -16,7 +16,7 @@ export const getPostSlug = (filePath: string): string => {
 export const getAllPosts = () => {
   let posts = postFilePaths.map((fp) => {
     const source = fs.readFileSync(path.join(POST_PATHS, fp));
-    const { content, data } = matter(source);
+    const { data } = matter(source);
 
     return {
       metadata: data,

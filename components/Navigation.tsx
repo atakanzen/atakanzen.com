@@ -1,6 +1,8 @@
+"use client";
+
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import React, { useEffect, useMemo } from "react";
+import React from "react";
 
 type Link = {
   href: string;
