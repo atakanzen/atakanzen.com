@@ -1,13 +1,11 @@
-import MdxClientRenderer from "@/components/MDXClientRenderer";
 import { getPostSlug, postFilePaths } from "@/lib/mdx";
 import { NextAppPage } from "@/types/next";
 import "highlight.js/styles/github-dark.css";
 
-
-
 const PostPage: NextAppPage<{ slug: string }> = async ({ params }) => {
   const { slug } = await params;
-  return <MdxClientRenderer slug={slug} />
+  const { default: Post } = await import(`@/content/${slug}.mdx`);
+  return <Post />;
 };
 
 export async function generateStaticParams() {

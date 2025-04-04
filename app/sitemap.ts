@@ -22,8 +22,8 @@ function generateSiteMap(posts: Post[]): Sitemap {
   ];
 }
 
-export default function sitemap(): MetadataRoute.Sitemap {
-  const posts = getAllPosts();
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  const posts = await getAllPosts();
 
   return generateSiteMap(posts);
 }
