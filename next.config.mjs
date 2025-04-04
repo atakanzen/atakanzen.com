@@ -1,9 +1,8 @@
 import createMDX from "@next/mdx";
-import { NextConfig } from "next";
 import remarkFrontmatter from "remark-frontmatter";
 import remarkMdxFrontmatter from "remark-mdx-frontmatter";
 
-const nextConfig: NextConfig = {
+const nextConfig = {
   reactStrictMode: true,
   pageExtensions: ["js", "jsx", "ts", "tsx", "md", "mdx"],
 };
