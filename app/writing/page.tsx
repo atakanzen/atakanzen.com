@@ -27,8 +27,8 @@ export const metadata: Metadata = {
     "Atakan Zengin Blog, Technology Blog, Software Blog, Blog Posts, Zengin Blog, Atakan Zengin's Blog",
 };
 
-const Posts = () => {
-  const posts = getAllPosts();
+const Posts = async () => {
+  const posts = await getAllPosts();
 
   return (
     <div className="w-full">

@@ -1,6 +1,5 @@
 import "fs";
 import fs from "fs";
-import matter from "gray-matter";
 import path from "path";
 
 export const POST_PATHS = path.join(process.cwd(), "content");
@@ -13,16 +12,24 @@ export const getPostSlug = (filePath: string): string => {
   return filePath.replace(/\.mdx?$/, "");
 };
 
-export const getAllPosts = () => {
-  let posts = postFilePaths.map((fp) => {
-    const source = fs.readFileSync(path.join(POST_PATHS, fp));
-    const { data } = matter(source);
+export const getPostMetadata = async (filePath: string) => {
+  const { matter } = await import(`@/content/${filePath}`);
 
-    return {
-      metadata: data,
-      path: fp.replace(/\.mdx?$/, ""),
-    };
-  });
+  return {
+    matter,
+  };
+};
+
+export const getAllPosts = async () => {
+  let posts = await Promise.all(
+    postFilePaths.map(async (fp) => {
+      const { matter } = await import(`@/content/${fp}`);
+      return {
+        metadata: matter,
+        path: fp.replace(/\.mdx?$/, ""),
+      };
+    })
+  );
 
   posts = posts.filter((p) =>
     process.env.NODE_ENV === "development" ? p : p.metadata.published
@@ -36,8 +43,8 @@ export const getAllPosts = () => {
   return posts;
 };
 
-export const getPinnedPosts = () => {
-  let posts = getAllPosts();
+export const getPinnedPosts = async () => {
+  let posts = await getAllPosts();
 
   posts = posts.filter((p) => p.metadata.pinned);
 
