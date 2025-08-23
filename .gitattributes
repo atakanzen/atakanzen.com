@@ -1,1 +1,1 @@
-**/content/** -linguist-detectable
+**/*.mdx -linguist-detectable
