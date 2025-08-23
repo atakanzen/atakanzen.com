@@ -4,31 +4,32 @@ import { useCallback, useEffect, useState } from "react";
 
 const GlitchText = () => {
   const title = "a generalist.";
-  const junk = [
-    "#",
-    "@",
-    "%",
-    "*",
-    "&",
-    "<",
-    ">",
-    "_",
-    "=",
-    "+",
-    "[",
-    "]",
-    "|",
-    "-",
-    "!",
-    "?",
-    "X",
-  ];
+
   const [glitchText, setGlitchText] = useState("?????????????");
 
   // Returns a promise that resolves when the animation finishes.
   const runGlitchAnimation = useCallback(
     (speed: number = 1): Promise<void> => {
       return new Promise((resolve) => {
+        const junk = [
+          "#",
+          "@",
+          "%",
+          "*",
+          "&",
+          "<",
+          ">",
+          "_",
+          "=",
+          "+",
+          "[",
+          "]",
+          "|",
+          "-",
+          "!",
+          "?",
+          "X",
+        ];
         const junkDuration = 5 * speed;
         const titleDuration = 6 * speed;
 
