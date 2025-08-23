@@ -26,7 +26,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={nudica.className}>
         <Navigation />
-        <main className="container pt-14 md:pt-20 mx-auto px-4 h-screen">
+        <main className="pt-14 px-4 md:pt-20 h-screen w-screen">
           {children}
         </main>
       </body>

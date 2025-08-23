@@ -25,7 +25,7 @@ export default async function MdxLayout({
       <span className="text-gray-500 text-base md:text-xl font-bold">
         {publishedAt}
       </span>
-      <article className="prose xl:prose-xl 2xl:prose-2xl prose-blue pt-4 dark:prose-invert prose-a:underline xs:prose-pre:max-w-sm sm:prose-pre:max-w-md md:prose-pre:max-w-none prose-a:text-blue-500 prose-pre:bg-[#0d0d3b] dark">
+      <article className="prose text-pretty xl:prose-xl prose-blue pt-4 dark:prose-invert prose-a:underline xs:prose-pre:max-w-sm sm:prose-pre:max-w-md md:prose-pre:max-w-none prose-a:text-blue-500 prose-pre:bg-[#0d0d3b] dark">
         {children}
       </article>
     </div>

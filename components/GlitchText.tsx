@@ -1,61 +1,65 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 const GlitchText = () => {
   const title = "a generalist.";
-  const junk = [
-    "#",
-    "@",
-    "%",
-    "*",
-    "&",
-    "<",
-    ">",
-    "_",
-    "=",
-    "+",
-    "[",
-    "]",
-    "|",
-    "-",
-    "!",
-    "?",
-    "X",
-  ];
+
   const [glitchText, setGlitchText] = useState("?????????????");
 
   // Returns a promise that resolves when the animation finishes.
-  const runGlitchAnimation = (speed: number = 1): Promise<void> => {
-    return new Promise((resolve) => {
-      const junkDuration = 5 * speed;
-      const titleDuration = 6 * speed;
+  const runGlitchAnimation = useCallback(
+    (speed: number = 1): Promise<void> => {
+      return new Promise((resolve) => {
+        const junk = [
+          "#",
+          "@",
+          "%",
+          "*",
+          "&",
+          "<",
+          ">",
+          "_",
+          "=",
+          "+",
+          "[",
+          "]",
+          "|",
+          "-",
+          "!",
+          "?",
+          "X",
+        ];
+        const junkDuration = 5 * speed;
+        const titleDuration = 6 * speed;
 
-      for (let i = 0; i < title.length; i++) {
-        for (let j = 0; j < junk.length; j++) {
+        for (let i = 0; i < title.length; i++) {
+          for (let j = 0; j < junk.length; j++) {
+            setTimeout(() => {
+              setGlitchText((prevText) => {
+                const chars = prevText.split("");
+                chars[i] = junk[j];
+                return chars.join("");
+              });
+            }, junkDuration * (i * junk.length + j));
+          }
+
           setTimeout(() => {
             setGlitchText((prevText) => {
               const chars = prevText.split("");
-              chars[i] = junk[j];
+              chars[i] = title[i];
               return chars.join("");
             });
-          }, junkDuration * (i * junk.length + j));
+          }, titleDuration * (i * junk.length + junk.length));
         }
 
-        setTimeout(() => {
-          setGlitchText((prevText) => {
-            const chars = prevText.split("");
-            chars[i] = title[i];
-            return chars.join("");
-          });
-        }, titleDuration * (i * junk.length + junk.length));
-      }
-
-      // Total animation duration calculation
-      const totalTime = titleDuration * (title.length * junk.length);
-      setTimeout(() => resolve(), totalTime);
-    });
-  };
+        // Total animation duration calculation
+        const totalTime = titleDuration * (title.length * junk.length);
+        setTimeout(() => resolve(), totalTime);
+      });
+    },
+    [setGlitchText]
+  );
 
   // Run fast animation twice on mount
   useEffect(() => {
