@@ -1,10 +1,24 @@
-import { OutstaticApi, Request } from "outstatic";
+import { GetParams, OutstaticApi, PostParams, Request } from "outstatic";
+
+interface GetRouteContext  {
+  params: GetParams
+}
+
+interface PostRouteContext {
+  params: PostParams
+}
 
 export async function GET(
   request: Request,
-  ctx: RouteContext<"/api/outstatic/[[...ost]]">
+  ctx: GetRouteContext
 ) {
-  const params = ctx.params;
-  return OutstaticApi.GET(request, { params });
+  return OutstaticApi.GET(request, { params: ctx.params });
 }
-export const POST = OutstaticApi.POST;
+
+export async function POST(
+  request: Request,
+  ctx: PostRouteContext
+) {
+  return OutstaticApi.POST(request, { params: ctx.params });
+}
+
