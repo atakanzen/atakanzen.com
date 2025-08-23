@@ -1,6 +1,31 @@
-import Title from "@/components/Title";
+import GlitchText from "@/components/GlitchText";
 import { getOpenGraphImage } from "@/lib/opengraph";
+import { ibmPlexMono } from "@/styles/fonts";
+import * as motion from "motion/react-client";
 import { Metadata } from "next";
+
+const SWEEP_IN_ANIMATION = {
+  initial: { x: -1000 },
+  animate: { x: 0 },
+  transition: {
+    type: "spring" as const,
+    stiffness: 50,
+    damping: 20,
+  },
+};
+
+// const HOVER_ANIMATION = {
+//   whileHover: {
+//     scale: 1.05,
+//     y: -2,
+//     transition: {
+//       type: false as const,
+//       duration: 0.1,
+//       stiffness: 100,
+//       damping: 10,
+//     },
+//   },
+// };
 
 export const metadata: Metadata = {
   title: "Atakan Zengin - Software Engineer",
@@ -27,33 +52,57 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <div className="flex h-4/5 my-5 flex-col mt-5 items-center justify-center gap-y-5">
-      <Title />
-      <div className="flex text-base lg:text-2xl items-center gap-x-4 text-blue-400">
-        <a
-          className="underline"
-          rel="noreferrer"
-          target="_blank"
-          href="https://github.com/atakanzen"
+    <div className="flex flex-col md:flex-row w-full h-full items-center justify-center gap-2">
+      <div
+        className={`flex flex-col w-full md:w-1/2 gap-4 md:items-end items-center justify-end select-none`}
+      >
+        <motion.h1
+          initial={SWEEP_IN_ANIMATION.initial}
+          animate={SWEEP_IN_ANIMATION.animate}
+          transition={SWEEP_IN_ANIMATION.transition}
+          className="text-3xl md:text-8xl tracking-tighter text-end"
         >
-          GitHub
-        </a>
-        <a
-          className="underline"
-          rel="noreferrer"
-          target="_blank"
-          href="https://linkedin.com/in/atakanzen"
-        >
-          LinkedIn
-        </a>
-        <a
-          className="underline"
-          rel="noreferrer"
-          target="_blank"
-          href="https://behance.com/atakanzengin"
-        >
-          Behance
-        </a>
+          Atakan Zengin
+        </motion.h1>
+        <div className="flex text-xl lg:text-2xl items-center justify-center md:self-end self-center gap-x-4 text-(--foreground-rgb)">
+          <motion.a
+            // whileHover={HOVER_ANIMATION.whileHover}
+            initial={SWEEP_IN_ANIMATION.initial}
+            animate={SWEEP_IN_ANIMATION.animate}
+            transition={{
+              ...SWEEP_IN_ANIMATION.transition,
+              delay: 0.5,
+            }}
+            className="underline"
+            rel="noreferrer"
+            target="_blank"
+            href="https://github.com/atakanzen"
+          >
+            GitHub
+          </motion.a>
+          <motion.a
+            // whileHover={HOVER_ANIMATION.whileHover}
+            initial={SWEEP_IN_ANIMATION.initial}
+            animate={SWEEP_IN_ANIMATION.animate}
+            transition={{
+              ...SWEEP_IN_ANIMATION.transition,
+              delay: 0.2,
+            }}
+            className="underline"
+            rel="noreferrer"
+            target="_blank"
+            href="https://linkedin.com/in/atakanzen"
+          >
+            LinkedIn
+          </motion.a>
+        </div>
+      </div>
+      <div
+        className={`${ibmPlexMono.className} w-full md:w-1/2 select-none flex justify-center md:justify-end`}
+      >
+        <div className="w-full flex justify-center">
+          <GlitchText />
+        </div>
       </div>
     </div>
   );

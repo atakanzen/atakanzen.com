@@ -38,10 +38,8 @@ const Posts = async () => {
   ]);
 
   return (
-    <div className="container mx-auto max-w-4xl px-4 py-8">
-      <h1 className="text-4xl mb-8 text-center text-[var(--foreground-rgb)]">
-        Writing
-      </h1>
+    <div className="max-w-4xl px-4 py-8">
+      <h1 className="text-4xl mb-8 text-(--foreground-rgb)">Writing</h1>
       <div className="flex flex-col items-left gap-y-8">
         {posts.map((p, i) => (
           <Link key={i} href={`/writing/${p.slug}`} className="group block">
@@ -51,8 +49,8 @@ const Posts = async () => {
                 style={{ backgroundImage: `url(${p.coverImage})` }}
               ></div>
             )}
-            <div className="p-4">
-              <h2 className="text-2xl mb-2 group-hover:underline text-[var(--foreground-rgb)]">
+            <div>
+              <h2 className="text-2xl mb-2 group-hover:underline text-(--foreground-rgb)">
                 {p.title}
               </h2>
               {p.description && (
