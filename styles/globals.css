@@ -37,16 +37,16 @@
 }
 
 :root {
-  --foreground-rgb: rgb(2, 6, 23);
-  --background-rgb: rgb(248, 250, 252);
+  --foreground-rgb: oklch(20.8% 0.042 265.755);
+  --background-rgb: oklch(98.4% 0.003 247.858);
 }
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: rgb(248, 250, 252);
     --background-rgb: rgb(7, 7, 32);
   }
-}
+} */
 
 html {
   margin: 0;

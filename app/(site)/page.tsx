@@ -1,31 +1,23 @@
 import GlitchText from "@/components/GlitchText";
+import { PAGE_APPEAR_ANIMATION } from "@/lib/constants";
 import { getOpenGraphImage } from "@/lib/opengraph";
 import { ibmPlexMono } from "@/styles/fonts";
 import * as motion from "motion/react-client";
 import { Metadata } from "next";
 
-const SWEEP_IN_ANIMATION = {
-  initial: { x: -1000 },
-  animate: { x: 0 },
-  transition: {
-    type: "spring" as const,
-    stiffness: 50,
-    damping: 20,
+const LINKS_ANIMATION = {
+  initial: {
+    color: "oklch(54.6% 0.245 262.881)",
+  },
+  whileHover: {
+    scale: 1.05,
+    color: "oklch(65.6% 0.241 354.308)",
+  },
+  whileTap: {
+    scale: 1.05,
+    color: "oklch(65.6% 0.241 354.308)",
   },
 };
-
-// const HOVER_ANIMATION = {
-//   whileHover: {
-//     scale: 1.05,
-//     y: -2,
-//     transition: {
-//       type: false as const,
-//       duration: 0.1,
-//       stiffness: 100,
-//       damping: 10,
-//     },
-//   },
-// };
 
 export const metadata: Metadata = {
   title: "Atakan Zengin - Software Engineer",
@@ -52,27 +44,19 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <div className="flex flex-col md:flex-row w-full h-full items-center justify-center gap-2">
-      <div
-        className={`flex flex-col w-full md:w-1/2 gap-4 md:items-end items-center justify-end select-none`}
-      >
-        <motion.h1
-          initial={SWEEP_IN_ANIMATION.initial}
-          animate={SWEEP_IN_ANIMATION.animate}
-          transition={SWEEP_IN_ANIMATION.transition}
-          className="text-3xl md:text-8xl tracking-tighter text-end"
-        >
+    <motion.div
+      initial={PAGE_APPEAR_ANIMATION.initial}
+      animate={PAGE_APPEAR_ANIMATION.animate}
+      className="flex flex-col md:flex-row w-full h-full items-center justify-center gap-2"
+    >
+      <div className="flex flex-col w-full md:w-1/2 gap-4 md:items-end items-center justify-end select-none">
+        <h1 className="text-5xl md:text-8xl tracking-tighter text-end">
           Atakan Zengin
-        </motion.h1>
+        </h1>
         <div className="flex text-xl lg:text-2xl items-center justify-center md:self-end self-center gap-x-4 text-(--foreground-rgb)">
           <motion.a
-            // whileHover={HOVER_ANIMATION.whileHover}
-            initial={SWEEP_IN_ANIMATION.initial}
-            animate={SWEEP_IN_ANIMATION.animate}
-            transition={{
-              ...SWEEP_IN_ANIMATION.transition,
-              delay: 0.5,
-            }}
+            initial={LINKS_ANIMATION.initial}
+            whileHover={LINKS_ANIMATION.whileHover}
             className="underline"
             rel="noreferrer"
             target="_blank"
@@ -81,13 +65,9 @@ export default function Home() {
             GitHub
           </motion.a>
           <motion.a
-            // whileHover={HOVER_ANIMATION.whileHover}
-            initial={SWEEP_IN_ANIMATION.initial}
-            animate={SWEEP_IN_ANIMATION.animate}
-            transition={{
-              ...SWEEP_IN_ANIMATION.transition,
-              delay: 0.2,
-            }}
+            initial={LINKS_ANIMATION.initial}
+            whileHover={LINKS_ANIMATION.whileHover}
+            whileTap={LINKS_ANIMATION.whileTap}
             className="underline"
             rel="noreferrer"
             target="_blank"
@@ -104,6 +84,6 @@ export default function Home() {
           <GlitchText />
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }
