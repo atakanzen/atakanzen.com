@@ -12,6 +12,8 @@ import { DetailedHTMLProps, HTMLAttributes, ImgHTMLAttributes } from "react";
 import rehypeCallouts from "rehype-callouts";
 import remarkGfm from "remark-gfm";
 
+import AnimatedContent from "../../../../components/AnimatedContent";
+
 const components = {
   a: (props: HTMLAttributes<HTMLAnchorElement>) => (
     <>
@@ -109,16 +111,18 @@ const PostPage: NextAppPage<{ slug: string }> = async ({ params }) => {
   }
 
   return (
-    <MDXRemote
-      source={post.content}
-      components={components}
-      options={{
-        mdxOptions: {
-          rehypePlugins: [[rehypeCallouts, { theme: "github" }]],
-          remarkPlugins: [remarkGfm],
-        },
-      }}
-    />
+    <AnimatedContent>
+      <MDXRemote
+        source={post.content}
+        components={components}
+        options={{
+          mdxOptions: {
+            rehypePlugins: [[rehypeCallouts, { theme: "github" }]],
+            remarkPlugins: [remarkGfm],
+          },
+        }}
+      />
+    </AnimatedContent>
   );
 };
 

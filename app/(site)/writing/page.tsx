@@ -1,9 +1,10 @@
 import { Metadata } from "next";
-import Link from "next/link";
 import { getDocuments } from "outstatic/server";
 
-import { POSTS_COLLECTION } from "@/lib/constants";
+import { PostLink } from "@/components/PostLink";
+import { PAGE_APPEAR_ANIMATION, POSTS_COLLECTION } from "@/lib/constants";
 import { getOpenGraphImage } from "@/lib/opengraph";
+import * as motion from "motion/react-client";
 
 export const metadata: Metadata = {
   title: "Atakan Zengin - Blog",
@@ -38,41 +39,18 @@ const Posts = async () => {
   ]);
 
   return (
-    <div className="max-w-4xl px-4 py-8">
+    <motion.div
+      initial={PAGE_APPEAR_ANIMATION.initial}
+      animate={PAGE_APPEAR_ANIMATION.animate}
+      className="max-w-4xl px-4 py-8"
+    >
       <h1 className="text-4xl mb-8 text-(--foreground-rgb)">Writing</h1>
       <div className="flex flex-col items-left gap-y-8">
         {posts.map((p, i) => (
-          <Link key={i} href={`/writing/${p.slug}`} className="group block">
-            {p.coverImage && (
-              <div
-                className="h-48 w-full bg-cover bg-center"
-                style={{ backgroundImage: `url(${p.coverImage})` }}
-              ></div>
-            )}
-            <div>
-              <h2 className="text-2xl mb-2 group-hover:underline text-(--foreground-rgb)">
-                {p.title}
-              </h2>
-              {p.description && (
-                <p className="text-gray-600 dark:text-gray-300 mb-3">
-                  {p.description}
-                </p>
-              )}
-              <div className="text-sm text-gray-500">
-                <span>
-                  {new Date(p.publishedAt).toLocaleDateString("en-US", {
-                    weekday: "long",
-                    year: "numeric",
-                    month: "long",
-                    day: "numeric",
-                  })}
-                </span>
-              </div>
-            </div>
-          </Link>
+          <PostLink key={`post-${i}`} post={p} />
         ))}
       </div>
-    </div>
+    </motion.div>
   );
 };
 
