@@ -3,9 +3,9 @@
 import { useCallback, useEffect, useState } from "react";
 
 const GlitchText = () => {
-  const title = "a generalist.";
+  const title = "A GENERALIST";
 
-  const [glitchText, setGlitchText] = useState("?????????????");
+  const [glitchText, setGlitchText] = useState("????????????");
 
   // Returns a promise that resolves when the animation finishes.
   const runGlitchAnimation = useCallback(
@@ -63,16 +63,16 @@ const GlitchText = () => {
 
   // Run fast animation twice on mount
   useEffect(() => {
-    (async () => {
+    setTimeout(async () => {
       await runGlitchAnimation(0.5); // faster: half the delay values
       await runGlitchAnimation(0.5);
-    })();
+    }, 250);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   // On hover run the normal animation once.
   const handleHoverOnGlitch = () => {
-    runGlitchAnimation(2);
+    runGlitchAnimation(1);
   };
 
   return (
@@ -80,7 +80,7 @@ const GlitchText = () => {
       onMouseOver={handleHoverOnGlitch}
       onClick={handleHoverOnGlitch}
       id="glitch-text"
-      className={`lg:hover:text-blue-500 sm:text-2xl lg:hover:cursor-help duration-500 select-none`}
+      className={`lg:hover:text-blue-600 font-semibold text-4xl md:text-6xl lg:hover:cursor-help duration-300 select-none`}
     >
       {glitchText}
     </div>

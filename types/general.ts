@@ -1,3 +1,4 @@
+import { TargetAndTransition, Transition, VariantLabels } from "motion/react";
 import { Languages } from "next/dist/lib/metadata/types/alternative-urls-types";
 
 export type Sitemap = Array<{
@@ -15,4 +16,11 @@ export type Sitemap = Array<{
   alternates?: {
     languages?: Languages<string>;
   };
+}>;
+
+export type MotionAnimation = Partial<{
+  animate: boolean | TargetAndTransition | VariantLabels | undefined;
+  exit: TargetAndTransition | VariantLabels | undefined;
+  initial: boolean | TargetAndTransition | VariantLabels | undefined;
+  transition: Transition;
 }>;
