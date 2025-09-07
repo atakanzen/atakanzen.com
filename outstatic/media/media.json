@@ -1,17 +1,6 @@
 {
-  "commit": "9c59e831185e4c4e077eac2fa2ff51967c7e42d6",
-  "generated": "2025-09-07T13:10:12.587Z",
+  "commit": "924f51dc891348e5c30295202c71a5b4c07ef278",
+  "generated": "2025-09-07T13:10:16.167Z",
   "media": [
-    {
-      "__outstatic": {
-        "commit": "",
-        "hash": "0",
-        "path": "public/images/titled_final_plot.png"
-      },
-      "alt": "",
-      "filename": "titled_final_plot.png",
-      "publishedAt": "2025-04-05T16:52:00.894Z",
-      "type": "image"
-    }
   ]
 }
