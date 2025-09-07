@@ -1,7 +1,18 @@
 {
-  "commit": "c3c6e0952986cbbba67079bb15fe55762691f341",
-  "generated": "2025-09-07T13:10:29.105Z",
+  "commit": "a74114873c3cde88823fc4a5b3cab7915f8e0f8d",
+  "generated": "2025-09-07T13:10:43.111Z",
   "media": [
+    {
+      "__outstatic": {
+        "commit": "a74114873c3cde88823fc4a5b3cab7915f8e0f8d",
+        "hash": "3125657406",
+        "path": "public/images/r-plot-Q1MD.webp"
+      },
+      "alt": "",
+      "filename": "r-plot-Q1MD.webp",
+      "publishedAt": "2025-09-07T13:10:43.111Z",
+      "type": "image"
+    },
     {
       "__outstatic": {
         "commit": "c3c6e0952986cbbba67079bb15fe55762691f341",
