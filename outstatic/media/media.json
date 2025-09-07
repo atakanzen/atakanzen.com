@@ -1,49 +1,49 @@
 {
-  "commit": "3741602f8a7de0b386b3b0cdb1b705e353ec15bb",
-  "generated": "2025-09-07T12:19:03.211Z",
+  "commit": "7408c3ebcaaf8f76043ced8ca5dc2c4fe10177d0",
+  "generated": "2025-09-07T13:11:28.392Z",
   "media": [
     {
       "__outstatic": {
-        "commit": "",
-        "hash": "0",
-        "path": "public/images/GreekPalette.png"
+        "commit": "f4809dd45b60515dfe1290c60981295ff04235f9",
+        "hash": "674497648",
+        "path": "public/images/final-plot-QyNj.webp"
       },
       "alt": "",
-      "filename": "GreekPalette.png",
-      "publishedAt": "2025-04-05T16:52:00.894Z",
+      "filename": "final-plot-QyNj.webp",
+      "publishedAt": "2025-09-07T13:11:09.113Z",
       "type": "image"
     },
     {
       "__outstatic": {
-        "commit": "",
-        "hash": "0",
-        "path": "public/images/Rplot.png"
+        "commit": "7408c3ebcaaf8f76043ced8ca5dc2c4fe10177d0",
+        "hash": "2154365580",
+        "path": "public/images/greek-palette-U2ND.webp"
       },
       "alt": "",
-      "filename": "Rplot.png",
-      "publishedAt": "2025-04-05T16:52:00.894Z",
+      "filename": "greek-palette-U2ND.webp",
+      "publishedAt": "2025-09-07T13:11:28.392Z",
       "type": "image"
     },
     {
       "__outstatic": {
-        "commit": "",
-        "hash": "0",
-        "path": "public/images/final_plot.png"
+        "commit": "a74114873c3cde88823fc4a5b3cab7915f8e0f8d",
+        "hash": "3125657406",
+        "path": "public/images/r-plot-Q1MD.webp"
       },
       "alt": "",
-      "filename": "final_plot.png",
-      "publishedAt": "2025-04-05T16:52:00.894Z",
+      "filename": "r-plot-Q1MD.webp",
+      "publishedAt": "2025-09-07T13:10:43.111Z",
       "type": "image"
     },
     {
       "__outstatic": {
-        "commit": "",
-        "hash": "0",
-        "path": "public/images/titled_final_plot.png"
+        "commit": "c3c6e0952986cbbba67079bb15fe55762691f341",
+        "hash": "3335180575",
+        "path": "public/images/titled-final-plot-EwNj.webp"
       },
       "alt": "",
-      "filename": "titled_final_plot.png",
-      "publishedAt": "2025-04-05T16:52:00.894Z",
+      "filename": "titled-final-plot-EwNj.webp",
+      "publishedAt": "2025-09-07T13:10:29.105Z",
       "type": "image"
     }
   ]

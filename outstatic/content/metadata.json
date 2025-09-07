@@ -1,24 +1,7 @@
 {
-  "commit": "039a55536548423def7a5a01fcd9b27c5dcb11c3",
-  "generated": "2025-04-06T12:48:36.031Z",
+  "commit": "80a63d7312745f253c3fe7a64a51000480fc87fd",
+  "generated": "2025-09-07T13:13:34.842Z",
   "metadata": [
-    {
-      "__outstatic": {
-        "commit": "d7dc8a5fa923b972ecca516754779b21561216f5",
-        "hash": "3954577817",
-        "path": "outstatic/content/posts/3d-population-density-maps-in-r.mdx"
-      },
-      "author": {
-        "name": "Atakan",
-        "picture": "https://avatars.githubusercontent.com/u/59116264?v=4"
-      },
-      "collection": "posts",
-      "excerpt": "How to use RStudio to create aesthetic 3D renders for population density maps.",
-      "publishedAt": "2024-08-25T22:00:00.000Z",
-      "slug": "3d-population-density-maps-in-r",
-      "status": "published",
-      "title": "3D Population Density Maps in R: Visualizing Data with Raytracing"
-    },
     {
       "__outstatic": {
         "commit": "32ba15e2ac89133b0f543dee238fd45590209a9d",
@@ -69,6 +52,23 @@
       "slug": "almost-one-year-at-modanisa",
       "status": "published",
       "title": "Almost One Year at Modanisa"
+    },
+    {
+      "__outstatic": {
+        "commit": "80a63d7312745f253c3fe7a64a51000480fc87fd",
+        "hash": "1775065409",
+        "path": "outstatic/content/posts/3d-population-density-maps-in-r.mdx"
+      },
+      "author": {
+        "name": "Atakan",
+        "picture": "https://avatars.githubusercontent.com/u/59116264?v=4"
+      },
+      "collection": "posts",
+      "excerpt": "How to use RStudio to create aesthetic 3D renders for population density maps.",
+      "publishedAt": "2024-08-25T22:00:00.000Z",
+      "slug": "3d-population-density-maps-in-r",
+      "status": "published",
+      "title": "3D Population Density Maps in R: Visualizing Data with Raytracing"
     }
   ]
 }
