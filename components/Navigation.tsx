@@ -32,31 +32,24 @@ const Navigation = () => {
   );
 
   return (
-    <nav className="fixed border-b backdrop-blur-lg py-5 w-screen flex items-center justify-start text-lg md:text-2xl px-4 h-12 md:h-16">
+    <nav className="fixed border-b bg-[var(--background-rgb)] py-5 w-screen flex items-center justify-start text-lg md:text-2xl px-8 h-12 md:h-16">
       <div className="flex items-center justify-center gap-x-2 font-light">
         {links.map((li) => (
           <React.Fragment key={li.href}>
-            <div className="relative">
-              <Link
-                className={`hover:text-blue-500 ${
-                  isActive(li.href) && "text-blue-500"
-                }`}
-                href={li.href}
-              >
-                {li.title}
+            <div className="relative hover:text-blue-600 hover:cursor-pointer">
+              <Link href={li.href}>{li.title}</Link>
+              {isActive(li.href) ? (
                 <motion.div
-                  key={li.href}
-                  className="absolute left-0 right-0 -bottom-1 h-0.5 bg-pink-500"
-                  initial={{ scaleX: 0 }}
-                  animate={{
-                    scaleX: isActive(li.href) ? 1 : 0,
-                    transition: { duration: 0.2 },
-                  }}
+                  key="underline"
+                  className="absolute left-0 right-0 -bottom-1 h-0.5 bg-blue-600"
+                  initial={false}
+                  transition={{ duration: 0.25 }}
+                  layoutId="underline"
                 />
-              </Link>
+              ) : null}
             </div>
 
-            <span>/</span>
+            <span>|</span>
           </React.Fragment>
         ))}
       </div>

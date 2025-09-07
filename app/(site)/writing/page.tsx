@@ -42,10 +42,12 @@ const Posts = async () => {
     <motion.div
       initial={PAGE_APPEAR_ANIMATION.initial}
       animate={PAGE_APPEAR_ANIMATION.animate}
-      className="max-w-4xl px-4 py-8"
+      className="max-w-4xl"
     >
-      <h1 className="text-4xl mb-8 text-(--foreground-rgb)">Writing</h1>
-      <div className="flex flex-col items-left gap-y-8">
+      <h1 className="text-3xl font-semibold md:text-4xl mb-8 text-(--foreground-rgb)">
+        Writing
+      </h1>
+      <div className="flex flex-col items-left gap-y-4 ">
         {posts.map((p, i) => (
           <PostLink key={`post-${i}`} post={p} />
         ))}
