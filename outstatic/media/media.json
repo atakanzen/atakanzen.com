@@ -1,6 +1,17 @@
 {
-  "commit": "924f51dc891348e5c30295202c71a5b4c07ef278",
-  "generated": "2025-09-07T13:10:16.167Z",
+  "commit": "c3c6e0952986cbbba67079bb15fe55762691f341",
+  "generated": "2025-09-07T13:10:29.105Z",
   "media": [
+    {
+      "__outstatic": {
+        "commit": "c3c6e0952986cbbba67079bb15fe55762691f341",
+        "hash": "3335180575",
+        "path": "public/images/titled-final-plot-EwNj.webp"
+      },
+      "alt": "",
+      "filename": "titled-final-plot-EwNj.webp",
+      "publishedAt": "2025-09-07T13:10:29.105Z",
+      "type": "image"
+    }
   ]
 }
