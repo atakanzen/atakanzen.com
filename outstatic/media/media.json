@@ -1,6 +1,6 @@
 {
-  "commit": "3ba6617e8d602309e5a8cd2c1a4d8150156a6c6e",
-  "generated": "2025-09-07T13:11:15.501Z",
+  "commit": "7408c3ebcaaf8f76043ced8ca5dc2c4fe10177d0",
+  "generated": "2025-09-07T13:11:28.392Z",
   "media": [
     {
       "__outstatic": {
@@ -11,6 +11,17 @@
       "alt": "",
       "filename": "final-plot-QyNj.webp",
       "publishedAt": "2025-09-07T13:11:09.113Z",
+      "type": "image"
+    },
+    {
+      "__outstatic": {
+        "commit": "7408c3ebcaaf8f76043ced8ca5dc2c4fe10177d0",
+        "hash": "2154365580",
+        "path": "public/images/greek-palette-U2ND.webp"
+      },
+      "alt": "",
+      "filename": "greek-palette-U2ND.webp",
+      "publishedAt": "2025-09-07T13:11:28.392Z",
       "type": "image"
     },
     {
