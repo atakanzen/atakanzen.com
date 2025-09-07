@@ -1,6 +1,6 @@
 {
-  "commit": "13e0dcb3bb3ddc565c94cf36712c153daf235744",
-  "generated": "2025-09-07T12:18:18.658Z",
+  "commit": "3741602f8a7de0b386b3b0cdb1b705e353ec15bb",
+  "generated": "2025-09-07T12:19:03.211Z",
   "media": [
     {
       "__outstatic": {
@@ -33,17 +33,6 @@
       "alt": "",
       "filename": "final_plot.png",
       "publishedAt": "2025-04-05T16:52:00.894Z",
-      "type": "image"
-    },
-    {
-      "__outstatic": {
-        "commit": "13e0dcb3bb3ddc565c94cf36712c153daf235744",
-        "hash": "674497648",
-        "path": "public/images/finalplot-Y4Nz.webp"
-      },
-      "alt": "",
-      "filename": "finalplot-Y4Nz.webp",
-      "publishedAt": "2025-09-07T12:18:18.657Z",
       "type": "image"
     },
     {
