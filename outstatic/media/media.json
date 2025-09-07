@@ -1,18 +1,7 @@
 {
-  "commit": "a8dab482979abab327f15b5f91cedabf0b8ff432",
-  "generated": "2025-09-07T13:10:04.906Z",
+  "commit": "e344b5d71c56639bd4324b70a704591fbb6cb89c",
+  "generated": "2025-09-07T13:10:08.593Z",
   "media": [
-    {
-      "__outstatic": {
-        "commit": "",
-        "hash": "0",
-        "path": "public/images/Rplot.png"
-      },
-      "alt": "",
-      "filename": "Rplot.png",
-      "publishedAt": "2025-04-05T16:52:00.894Z",
-      "type": "image"
-    },
     {
       "__outstatic": {
         "commit": "",
