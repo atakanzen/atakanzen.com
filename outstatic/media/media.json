@@ -1,7 +1,18 @@
 {
-  "commit": "1b728d4da1c85f4a13891cd1d52e7a9ded43c801",
-  "generated": "2025-09-07T13:10:48.319Z",
+  "commit": "f4809dd45b60515dfe1290c60981295ff04235f9",
+  "generated": "2025-09-07T13:11:09.113Z",
   "media": [
+    {
+      "__outstatic": {
+        "commit": "f4809dd45b60515dfe1290c60981295ff04235f9",
+        "hash": "674497648",
+        "path": "public/images/final-plot-QyNj.webp"
+      },
+      "alt": "",
+      "filename": "final-plot-QyNj.webp",
+      "publishedAt": "2025-09-07T13:11:09.113Z",
+      "type": "image"
+    },
     {
       "__outstatic": {
         "commit": "1b728d4da1c85f4a13891cd1d52e7a9ded43c801",
