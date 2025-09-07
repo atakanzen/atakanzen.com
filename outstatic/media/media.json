@@ -1,7 +1,18 @@
 {
-  "commit": "a74114873c3cde88823fc4a5b3cab7915f8e0f8d",
-  "generated": "2025-09-07T13:10:43.111Z",
+  "commit": "1b728d4da1c85f4a13891cd1d52e7a9ded43c801",
+  "generated": "2025-09-07T13:10:48.319Z",
   "media": [
+    {
+      "__outstatic": {
+        "commit": "1b728d4da1c85f4a13891cd1d52e7a9ded43c801",
+        "hash": "2154365580",
+        "path": "public/images/greek-palette-kxMD.webp"
+      },
+      "alt": "",
+      "filename": "greek-palette-kxMD.webp",
+      "publishedAt": "2025-09-07T13:10:48.319Z",
+      "type": "image"
+    },
     {
       "__outstatic": {
         "commit": "a74114873c3cde88823fc4a5b3cab7915f8e0f8d",
