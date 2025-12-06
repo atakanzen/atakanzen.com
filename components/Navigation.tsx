@@ -19,6 +19,10 @@ const links: Link[] = [
     href: "/writing",
     title: "writing",
   },
+  {
+    href: "/photography",
+    title: "photography",
+  },
 ];
 
 const Navigation = () => {

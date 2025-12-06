@@ -4,10 +4,6 @@
 
 @plugin "@tailwindcss/typography";
 
-@theme {
-  --breakpoint-xs: "475px";
-}
-
 @utility prose {
   aside {
     border: 1px solid;
