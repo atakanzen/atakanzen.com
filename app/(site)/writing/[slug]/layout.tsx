@@ -28,7 +28,7 @@ export default async function MdxLayout({
       className="container flex flex-col justify-center pb-8 max-w-md sm:max-w-lg md:max-w-2xl xl:max-w-full xl:items-center mx-auto"
     >
       <span className="text-slate-500 text-base md:text-xl">{publishedAt}</span>
-      <article className="prose text-pretty xl:prose-xl prose-blue prose-a:underline xs:prose-pre:max-w-xs sm:prose-pre:max-w-lg md:prose-pre:max-w-none prose-a:text-blue-600 prose-pre:bg-slate-900">
+      <article className="prose text-pretty xl:prose-xl prose-blue prose-a:underline prose-pre:max-w-xs sm:prose-pre:max-w-lg md:prose-pre:max-w-none prose-a:text-blue-600 prose-pre:bg-slate-900">
         {children}
       </article>
     </motion.div>
